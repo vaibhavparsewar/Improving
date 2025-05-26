@@ -1,0 +1,220 @@
+🧡Precedence ==> html inline styling >  specific selectors (i.e  p #id) have more precedence than simple id (#id) is more than class (.class) is more than tag (p)
+#id or class or tag{
+    color:blue !important;
+}//but if you want to change precedence you write like 
+
+
+
+/*🧡 FOR ALL */
+*{
+    color:blue;
+}
+
+/*🧡 ID */
+#welcome{
+    background-color:green;
+}
+/*🧡 CLASS */
+.heading{                 /*OR h1.heading*/
+    background-color:green;
+}
+
+/*🧡SIMULTANEOUSLY*/
+h1,p{
+    color:green;
+}
+
+/*🧡IMAGE*/
+p{
+    background-image:url("link")
+}
+
+/*🧡Position*/
+h1{
+    background-position:right top;
+}
+
+/*🧡MARGIN in px or %*/
+h1{
+    margin-left:50px;
+    margin:50px 50px 50px 50px;     /* all in one */
+    margin:50px;     /* all in one */
+}
+
+
+b{
+    margin:50px;
+}
+/* THIS WILL INHERIT THE PARENT TAG */
+p{
+    margin:inherit;
+}
+
+
+/*🧡 BORDER in dotted,solid,double,ridge,outset,inset,hidden*/
+h1{
+    border-style:dotted;
+    border-style:dotted solid double dashed;   /*from all side*/
+    border-top-style:dotted;   
+    border-bottom:10px dotted purple ;   
+    border-width:6px;     /*medium,thick*/
+    border-color:blue purple green red;     /*medium,thick*/
+    border-radius:10px;   
+}
+
+
+/*🧡 PADDING use border then apply padding*/
+h1{
+    padding:30px 4px 2px 1px;  
+}
+
+
+/*🧡 PADDING use border then apply padding*/
+h1{
+    padding:30px 4px 2px 1px;  
+}
+
+
+/*🧡 HEIGHT AND WIDTH*/
+h1{
+    height:1px;  
+    width:100%;  
+    max-width:50%; 
+}
+
+
+/*🧡 OUTLINE outside of border*/
+h1{
+    outline-style: dashed;    /*top and bottom*/
+    outline-offset:10px;      /*space between border and outline*/
+}
+
+
+/*🧡 ALIGNMENT*/
+h1{
+    text-align: center;    /*width madhe center la*/
+    text-align: justify;    /*whiole width*/
+    text-align-last: center;    /*last line of para is aligned to center*/
+    vertical-align: top;    /*line madhla text la top la pathavta jr size choti asel tr*/
+
+}
+
+
+/*🧡 DECORATION*/
+h1{
+    text-decoration: underline overline line-through;    /*link madhe underline ast n text la*/
+    text-decoration: none;    /*link madhe underline ast n texdt la*/
+    text-decoration: overline red 10px dotted;    /*width madhe center la*/
+    text-transform:uppercase capitalize lowercase; 
+    text-indent:30px;
+    letter-spacing:2px;
+}
+
+
+/*🧡 FONTS*/
+h1{
+    font-family: 'Courier New';
+    font-style:italic;    #normal
+    font-weight:bold;    #normal
+    font-size:10em;    
+}
+
+
+/*🧡 ICON
+here you need to link googleapis and use icon in html file <i class="material-icons">cloud</i>*/
+
+
+/*🧡 TABLES */
+table, th, td{
+    border: 20px solid red;
+    width:100%;
+    border-collapse:collapse;        #💥💥
+}
+th{
+    height:30px;
+}
+th, td{
+    text-align:center;
+    padding: 20px;
+}
+tr:hover{
+    background-color:blue;
+}
+
+
+/*🧡 DISPLAY and VISIBILITY */
+table{
+    display:none;               #deleted
+    visibility: hidden;        #gayab
+}
+
+
+/*🧡 COMBINATORS */
+h1 b{                           #it will apply effects on b of h1
+    color:red;
+}
+/*🧡 COMBINATORS   +(after h1 tag only one non inherited b tag la apply),>,~(after h1 all b tag la apply) */
+h1 > b{                           #it will apply effects on direct child(b) of h1 not grandchild
+    color:red;
+}
+
+button:hover{
+    cursor:pointer;
+
+}
+
+
+
+
+/*🧡 DROPDOWN */
+.dropdownbutton{
+    background-color:blue;
+    color:white;
+    padding:3px;
+    font-size:34px;
+    border:none;
+    cursor:pointer;
+}
+.dropdown{
+    position:relative;
+    display:inline-block;
+}
+.dropdown-menu{
+    display: none;
+    position:absolute;
+    background-color:red;
+    min-width:169px;
+}
+.dropdown-menu a{
+    color:black;
+    text-decoration:none;      #underline deleted 
+    display:block;             #eka khali ek
+}
+.dropdown-menu a:hover{
+    background-color:navajowhite;
+}
+.dropdown:hover .dropdown-menu{
+    display:block;
+}
+.dropdown:hover .dropdownbutton{
+    background-color:green;
+}
+
+
+
+/*🧡 ATTRIBUTE SELETOR */
+div[class="test"]{
+    background-color:blue;
+}
+
+
+
+
+color:blue;
+background-color:green;
+opacity:0.2;
+background-image:url("link")
+background-position:right top;
+
+
+

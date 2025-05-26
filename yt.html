@@ -1,0 +1,245 @@
+//🧡 ! and enter
+<!DOCTYPE html>   self closing
+<html lang="en">   language english
+  <head>
+    <title>youtube.com</title>  //title on tab
+    <style>
+        table{
+            width:200%;
+        }
+        th,td{
+            border:1px solid black;
+            padding:
+        }
+    </style>
+  </head>
+  <body>        //visible to user
+    <h1>Hi vaibhav</h1>
+  </body>
+  <footer>
+     //at last
+  </footer>
+</html>
+
+
+//🧡CLOSING tags
+ <tagname attribute="value1" attribute2="value2">content</tagname>
+//🧡selfCLOSING tags
+ <tagname attribute="value1" attribute2="value2" />     // backslash is optional here
+
+
+ //🧡 AUTOCOMPLETION
+ write h1 and enter   h1 to h6
+
+
+
+ 🧡<q> for double quotes</q>
+ 🧡<p> for <abbr title= "hypertext markup language" >html</abbr> fullform</p>
+ 🧡<pre>        //to print code as it is 
+        function ehllo(){
+            console.log('hello')
+        }
+ </pre>
+
+ 🧡<address></address>
+ 🧡<p> <cite> the great</cite> indian emperors</p>
+ 🧡<p> <bdo dir = "rtl">text Displayed from right to left</bdo> indian emperors</p>
+
+
+🧡<br> self closing tag
+🧡to remove <br>in <p> use <pre> in place of <p> and remove <br>
+🧡<i>Italic</i> or <em></em>  -->
+🧡<b>bold</b> or <strong></strong>
+🧡<mark>highlights the words</mark>
+🧡<del>cut the line</del>   or <s></s>
+🧡<small>for smaller text</small>
+🧡O<sub>base la lavte</sub>  or <sup></sup>
+
+💥💥INLINE VS BLOCK LEVEL ELEMENTS
+🧡block element or tag = start with new line , takes full width, <h2></h2> tag, <p></p>
+🧡Inline element or tag = does not start with new line ,  takes width as necessary, <a href="">home</a>, <a href="">login</a> in same line both, <b></b>, <u></u>
+TO BEHAVE INLINE LIKE BLOCK LEVEL USE div as div is block  
+<div><a href="">home</a></div>
+<div><a href="">login</a></div>
+
+
+
+💥💥COLOR
+🧡<h1 style="color:blue; background-color:red;"></h1>
+🧡<a href="https://google.com" target="_blank">link</a>
+🧡<a href="mailto:sample@sample.com" target="_blank">link</a>
+🧡website name and favicon(logo)
+<head>
+    <title>vaibhav.com</title>
+    <link rel='icon' href="image link">
+</head>
+
+
+💥NAVIGATION this is called as anchoring
+🧡in page navigation through id
+<a href = "#services">go to services</a>
+<h1 id="services">lorem ispsum</h1>
+
+
+
+
+💥💥LIST
+🧡List <ol><li>hi</li></ol> and <ul></ul> and <dl>describe karte list la</dl>
+<dl>
+    <dt>fruit</dt>
+    <dd>fruit is full of nutrients</dd>    
+</dl>
+
+
+💥💥BLOCK ELEMENT (always starts on new line)  eg.<div></div>
+<div style="color:red";>   applies to all element inside div 
+</div>
+
+💥💥INLINE ELEMENT(doesnot )
+<p>this is <b>vaibhav</b> </p>  Here b is inline
+
+
+💥💥Iframe         website inside website
+<iframe href="google.com" height=200></iframe>
+
+
+💥💥SIGN
+<p>this is &euro; </p>  Here b is $
+
+💥💥IMAGE
+<img src="photo link" alt="this is dog photo" widht ="300px" height = "299px">   //if link breaks then alt text is displayed important
+
+💥💥BUTTON
+<button onclick="functionname()">send</button>
+
+💥💥FAVICON
+TO USE FAVICON GO TO FONTAWESOME.CDN.JS COPY CODE AND PASTE IN HEAD THEN YOU CAN USE IT
+//insted use undraw.com to download png and replace png to .svg
+
+
+
+💥💥Form input is self closing tags
+<form action="department.html" method="POST"> #action is to send the form data to department.html through POST and GET method
+    <label for="user">Name</label>
+    <input type="text" placeholder="enter text" name="user" id="user" required min="30" max="100" >      name to collect data and id to style it use placeholder or value
+
+    <label for="user">vai</label> 
+    <input type="checkbox" name="user" id="user" value="vai" required> can use radio type
+     
+    <input type="button" value="submit"> can use radio type
+    <input type="number" min = "0" max ="99"> can use radio type
+</form>
+
+
+
+type = number,url,tel(telephone number),file,date,time, month, week, text, email,password,button,reset,submit,checkbox,redio,range,color
+
+🧡FOR MULTI LINE TEXT INPUT
+<label>CV</label>
+<textarea rows="5" col ="6"></textarea>       don't need to use input
+
+
+🧡multiple selects
+<label>select the languages</label>
+<select name="languages">
+    <option value="javascript">javascript</option>    //value is something that is going to the database
+    <option selected value="python">python</option>     //selected means default konta dakhvaych
+    <option value="java">java</option>
+</select>
+
+
+💥💥TABLE
+<table>
+
+    <tr> table row
+        <th>name</th> table heading
+        <th>age</th>
+    </tr>
+
+    <tr>
+        <td>vai</td> table data
+        <td>23</td>
+    </tr>
+</table>
+
+OR
+<table>
+    <caption>tHIS IS TABLE</caption>   //like h1
+    <colgroup>                          //to specify no.of column
+        <col>
+        <col>
+    </colgroup>
+
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>age</th>         
+        </tr>     
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>vai</td>
+            <td>34</td>
+        </tr>
+    </tbody>
+</table>
+
+
+🔥🔥AUDIO AND VIDEO 
+<!-- AUDIO-->
+ <audio controls src="./whistle.mp3"></audio>
+<!-- VIDEO-->
+ <video width = "23" height = "23" controls src="./whistle.mp4"></video>
+
+
+🔥🔥EMOJIS go to emoji cheat sheet in webfx.com
+<p style = "font-size:40px">⭐⭐</p>
+
+🔥🔥ENTITIES LIKE @
+<p style = "font-size:40px">&commat;</p>        //go to reilldesign
+
+🔥🔥NAVIGATION
+1.INTERNAL
+<a href="#services">service</a>   // takes to the about downside used tag here
+<div id="about"">lorem*10</div>
+<div id="services"">lorem*10</div>
+2.EXTERNAL
+<a href="index.html">index</a>
+
+🔥🔥FAVICON AND ICONS
+UNDER HEAD TAG 
+<link rel="icon"" type="image/x-icom">
+<link rel="icon" href = "./logo.png" type="image/png">
+<link rel="icon"" type="image/svg+xml">
+
+GO TO FONT AWESOME CDN COPY THE CODE AND PUT IN HEAD TAG TO CONNECT THE FONTAWESOME 
+<i class="fa-solid fa-download">click to download</i>
+
+
+🔥🔥DOWNLOAD pdf and send email
+<a href="/sample.pdf" download></a>
+<a href="mailto:vaibhav@gmail.com">send mail</a>
+<a href="tel:94243321">call</a>
+
+⭐⭐FOR DEPLOYMENT USE NETLIFY
+SHOULD HAVE INDEX.HTML
+if you update any file go to Deploy and upload the updated file
+To change the url click on Site settings > change site name
+
+
+
+
+
+
+
+
+
+
+
+
+🧡
+HTML1 = text , links
+HTML 2 = forms like input 
+HTML 4 = css, tables, frames 
+HTML 5 = audio, vido, svgs 

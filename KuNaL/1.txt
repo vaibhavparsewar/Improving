@@ -1,0 +1,198 @@
+
+-----------------LANGUAGES----------------------
+-PROCEDURAL- contains order of steps to compose a program
+-FUNCTIONAL- pure functions don't know the implementation
+-OOP- data + code = object
+     class- group of properties and functions  
+
+-java (oop + procedural) python(ALL)
+
+----------------Static Dynamic----------------
+Static = type check at compilation time, errors shown at compile time, need to declare the variable
+Dynamic = type check at run time, error not shown till run the program
+
+-----------------------------------------------
+a=10    //a-variable,identifier(stored in stack) 10-object,literals(stored in heap)
+        //more than one variable points to same object so if object is changed then for other variable is also changed
+        //when no reference to object it get deleted as garbage collection hits
+
+-Prime no - 2toROOT of number if remainder = 0 then not prime
+
+-----------------------EXECUTION-------------
+.javafile ---compiler-----> .Classfile ---interpreter------> MachineCode
+(sourse code)-------------> (byte code needs jvm to run)---> 
+
+-compiler compiles whole at once.
+-interpreter line by line.
+-PlatForm independent = To run bytecode JVM required so java is independent but JVM is dependent
+-JVM- for running bytecode so converts from byte to machine.
+
+-JDK- JRE(execute program as jvm is consisted)+devTools(envto develop a program)
+     -jdk includes JRE,devtools,javac compiler, javadoc docs generator,jar as archiver
+
+-JRE- JVM+libraryClass
+    -jvm,libraries,deployment technologies
+    -After .class file  class loader class loads all package req to run program.
+    -JVM sends byte code to byte code verifier to check code.
+
+-JVM intrepreter- JIT(just in time)
+    -Loading -reads .class file and generate binary data.
+             -object of this class is created in heap.
+    -Linking - allocates memory for the variables and value.
+    -Initialization - variables are assigned with values
+
+    -JVM contains stack and heap memory allocations
+    -line by line execution.
+
+-JIT compiler - methods that are repeted again and again JIT provides direct machine code for this 
+
+--------------------------------------------------------------
+class Main{
+public static void main(String[] args){
+    sout(args[0])   //while running (java Main 20 "kunal") - it will print 20
+}
+}
+
+-main is the reserve keyword function and is a entry point
+-as it is entry point means execution starts from here it should be static 
+-args is array collection of string.
+-System is class out is variable and println is method
+-javac -d . Demo.java       //class stored at current directory
+-javac -d .. Demo.java      //previous directoryz
+javac is present in (ls /user/bin) can open using (opne /user/bin)
+
+
+
+--------------------------------TYPECASTING=========
+-small to large possible 
+float a = 2   and float a = 2.4f   both are allowed as 2 is integer so it can be assigned to float as float is greater
+-int num = 'A'  //gives ASCII 65
+
+
+-------Use for loop when you know how many times loop is going to run
+
+
+------------SWITCH STATEMENT -----------------------------------------------------------------------
+String a = "vaibhav";
+String b = "vaibhav";
+System.out.println(a == b);     //TRUE  it will check value as well as the reference 
+System.out.pirntln(a.equals(b)) //TRUE  it will check only value
+
+//down code will print whether it is weekday or weekend
+switch(day){
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+            System.out.println("Weekday");
+    case 6:
+    case 7:
+            System.out.println("Weekend");
+
+}
+//ENHANCED
+switch(day){
+    case 1,2,3,4,5 -> sout("weekday");
+    case 6,7 -> sout("WEEKEND"); 
+}
+
+
+------------------------------------------------------------------
+swap(int a, int b){
+    int temp = a;
+    a = b;
+    b = temp; 
+}
+//THIS WILL NOT SWAP as we are passing by value.
+//For primitive datatype only pass by value is followed and new object is created.
+//For non primitive datatype like array the copy of reference is passed which points to same object
+
+
+----------------------------------------SCOPE----------------------------
+-Variables inside block {},function cannot be accessed outside the block,function.
+Anything initialized outside the block {} can be used inside but anything initialized inside {} cannot be used outside.
+Anything initialized outside the block {} cannot be reinitialized inside the block but anything initialized inside the block {} can be initialized outside the block {}
+
+--------------------------------------SHADOWING----------------------
+but when variable is initialized in the class we can reinitialized it in the main method and when printed it will shadow the class variable and prints variable from main method
+
+
+-------------------------------VARIABLE LENGTH ARGUMENT-----------------------------
+function(int ...v);         //this will also gives array.
+function(String ...arr);
+sout(Arrays.toString(arr));
+function(int a, int b, String ...c)        //here we can write as function(2,3,"vai","tiak","tehr)
+
+-------------------------------Function overloading_----------------------
+same name, return type but different no of parameters or different datatype of parameter
+
+
+
+-----------------------------ARRAY---------------------------------
+int[] arr= new int[3];  //int is datatype of elements in array.
+                        //arr is reference variable
+                        //new used to create object
+
+OR
+int[] arr;          //creating referece variable in stack memory callled declaration (compile time)
+arr= new int[2]     //obj created in heap memory and is initialization. (run time)- This is called dynamic memory allocation 
+arr[1]              //initially will be 0 at all position if string array then null
+
+-in java the element may not stored continiousas it depends on JVM
+-each element is a object
+-In terminal while giving input to array give like this     1 2 3 4 5
+
+
+---------------------------2D ARRYA-------------------=-------------------------
+Arrays of Arrays
+for(int row = 0; row < arr.length; row++){
+    for(int col = 0; col < arr[0].length ; col++){
+        arr[row][col] = sc.nextInt();
+    }
+    sout("\n")
+}
+
+-IN TERMINAL WHILE INPUTTING 
+1 2 3 4 5 6 7 8 9
+
+-TO PRINT 
+for(int[] a : arr ){
+    sout(Arrays.toString(a));
+}
+
+
+------------------------ARRAY LIST-----------------------------------------------------
+ArrayList<Integer> list = new ArrayList<>();        //Integer is wrapper class
+list.add(4);        //remove,set,get,indexOf(),size(),contains(),clone,clear,addAll(),
+
+//size is fixed actually
+//when it filled by some amount it will create new arraylist of double size and elements from old is copied to new list
+
+-MULTIDIMENSIONAL
+ArrayList<ArrayList<Integer>> list = new ArrayList<>();
+//each element in list is a array
+for(int i = 0; i< list.lenght; i++){
+    list.add(new ArrayList())
+}
+//now add element 
+for(int i = 0; i <3; i++){
+    for(int j =0 ; j < 3 ; j++){
+        list.get(i).add(sc.nextInt())
+    }
+}
+
+-When you wnated to return array in function 
+return new int[]{row,col}
+
+
+
+
+
+
+
+
+
+
+
+

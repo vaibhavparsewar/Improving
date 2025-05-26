@@ -1,0 +1,211 @@
+TO CREATE REACT APP =====>                                          npx create-react-app quizapp --use-npm
+TO START                                                            cd(change directory) project-name  then   
+                                                                    npm start
+
+sagla kahi frontend aahe t id=root madhe jate through index.js in src
+
+
+jsx is javascriptxml is a 80%html where class is className for is HTMLFor and tabindex is tabIndex and java script is written in {} 
+sagla html j aahe t terminated pahije eg. <img src=""      /> like this component sathi pn <component /> and babel compiles jsx into element
+
+
+REACT COMPONENT                                                     in src create components folder in that components are there we can have .jx or .jsx extension to component
+                                                                    after that use rfce(i.e react funciton based component to get boiler plate)
+
+
+HOOK
+component madhe return ch adhi ani import {useState} from react
+const[text,setText]=useState("default text put here")
+
+PORPSs
+componentName(props)              and  then khali {props.title}                           //he lihaych component madhe
+import it  ,,   component madhe last la   eg.  NavBar.proptypes={ title: proptypes.tostring.isRequired}
+//pn default pn deu shakto jasaki
+NavBar.defaultProps={title:"wonsulting"}
+
+STYLE 
+const mystyle={
+    color:'red';
+    backgroundColor:'white';                          background-color yet nahi react madhe
+}
+<div className="" style={mystyle} 
+//OR
+document.body.style.backgroundColor:dark
+//OR
+style={{}}
+
+
+SETTIMEOUT
+funciton chya madhe lihi ani dot kahi vapru nako
+setTimeout(()=>{
+    setAlert(null)
+},3000)
+
+
+SETInterval  =====to change continuously the title of website
+funciton chya madhe lihi ani dot kahi vapru nako
+setInterval(()=>{
+    document.title = "helo"
+},3000)
+
+
+
+
+//REACTROUTER #16
+npm install react-router-dom
+
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from react-router-dom
+
+//TO USE IT IN APP.js FIrst of all all content should be wrapped in <Router></Router> and then inside this use this
+<Switch>
+    <Route exact path='/home'>
+        <home />                    //component
+    </Route>
+    <Route exact path='/about'>
+        <about />
+    </Route>
+</Switch>
+
+//a should be replaced with Link and href should be replaced with to
+
+
+//DEPLOYMENTs
+https://create-react-app.dev/docs/deployment/                    search for pages follow steps of adding homepage link at top and two lines in script predeploy and deploy  just replace deploy with      "deploy": "gh-pages -d build -r <vaibhav tuza repository_url>",  mg save kr ani (npm run deploy) kr
+
+
+///DISABLED BUTTONS 
+<button Disabled:{text.length()==0}                    //jr condition true asel tr true return karal
+
+//copy text kela vr t selected ch rahaylay tr use
+document.getSelection().removeAllRanges()                
+
+//BUTTON DABLYAVR JR DIRECT FUNCTION MADHUN BODY CH COLOR CHANGE KARAYCH ASEL TR  FUNCTION MADHE lihi class madhe add karav lagel as we are using bootstrap
+document.body.classList.add('bg-'+cls})                                                 //cls he primary,secondary,success,warning rahu shakte
+//JARKA TULA ADHI APPLY KELELA COLOR REMOVE KARAYCH ASAL TR 
+document.body.classList.remove("bg-success")                                            //sagle remove kr adhiche 
+
+
+//TO COPY TEXT WE USED 
+navigator.clipboard.writeText(text.value)
+
+//FUNCTION BASED COMPONENT     ===> rfce tab
+//CLASS BASED components       ===> rce or rcep tab
+
+
+//href="/"                    //he chalta pn # use karu nako 
+//to="#"                      //he as pahije
+
+
+//class based react component
+normally apan component(props)  ani madhe apan {props.title} asa use karat hoto
+pn class based component madhe render( ) chya  madhe ani return() ch vr lihi let{title,description,imgurl} = this.props   karto ani madhe kay ki direct use karto {title}   kivva {descrtiption}
+to call funciton use this.funciton
+
+//constructor
+render() cha adhi lihito apan 
+constructor(){
+    super()
+}
+
+
+//STATE    render ch adhi tak
+let article =[{                                                              //array of object literal ani render ch adhi tak
+    
+}]
+this.state = {                                                               //render() ch adhi lihi ani constructor madhe lihi
+    article : this.article
+
+}
+//use kartana 
+this.state.article.map((element)=>{return div or any leement})
+
+//ATA API fetch karu shkto kivva axios ch use karu shakto news api varun ghyala
+
+//ComponentDidMount                     //alway runs after render pn apan render ch adhi takto ani content update karto ha
+async ComponentDidMount(){
+    let data = await fetch(url)
+    let jsondata = data.json()
+    cosole.log(jsondata)
+    this.setState({article: jsondata.articles})
+}
+
+
+
+//LIFECYCLE                                                     ... Running sequence is    constructor then render() then react will update dom then ComponentDidMount then componentDidUpdate then componentWillUnmount()
+render()
+compnentDidMount() => birth of component
+compnentDidUpdate() =>change of component
+compnentWillUnmount() =>destroy of component
+
+
+//npm i react-router-dom concurrently
+
+
+
+//backend start karnya sathi
+cd .\backend\
+nodemon ./index.js
+
+//frontend start karnya sathi
+npm start
+
+//outer package.json madhe script madhe add kr doni front end ani backend run karnyasathi
+"both": "concurrently \"npm run start\" \"nodemon /backend/index.js\""
+npm  run both                                                                            //kr terminal madhe
+
+
+
+//CONTEXT API #58
+//USELOCATION HOOK #59
+
+
+
+//google vr = Fetch with headers
+
+
+cd .\backend\ 
+npm i cors
+
+
+
+
+
+
+
+
+
+
+REDUX76 bg code stahi
+npm i redux react-redux redux-thunk
+
+src madhe state navach folder kr tyat don folder banav 1.action-creator 2.reducer  ata action-creater madhe index.js banav ani don function lihi ani export kr js ki 
+
+export const withdramount((amount)=>{
+    return(dispatch()=>{
+        dispatch({type:'deposit', payload:amount})
+    }
+    )
+})
+
+and then in reducer folder create one js file and make                             reducer takes action and state and changes the state according to action
+export const amountreducer= (state=0 , action)=>{
+        if(action.type == deposit){
+            return state+ action.payload
+        }
+}
+
+now there may be more redusers so create index.js in reducer folder and we require combineReducer from redux so import {combineReducers} from 'redux'
+export const reducer= combineReducer({
+    amount: amountreducer  
+})
+
+now inside state folder create store.js
+
+
+
+const action = bindActionCreators(actionCreators,dispatch)               //actionCretors he me kelay import j ki banavlay index.js madhe import * as actionCreators from (path de jith tuzaz action cretors ch js file aahe tyat j deposit money aahe )

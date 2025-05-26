@@ -1,0 +1,1208 @@
+⭐1.-Prime no - 2to<rootOfnumber if remainder = 0 then not prime
+            if(n<=1){
+                return false;
+            }
+            int c = 2;
+            while (c*c <= n){
+                if(n%c == 0){
+                    return false;
+                }
+                c++
+            }
+            return true;
+
+⭐2.-Max= Math.max(c,Math.max(a,b))
+
+⭐3.-UpperCase - sc.nextString().trim().charAt(0).toUpperCase()
+            - if(ch >= 'a' && ch <= 'z')
+
+⭐4.Fibonacci - 
+    Scanner sc = new Scanner(System.int)
+    int n = sc.nextInt();
+    int a = 0;
+    int b = 1;
+    int count = 2;
+
+    while(count < =n){
+        int temp = b;
+
+        b = b+a;
+        a = temp;
+        count ++;
+    }
+
+    public int fibo(int n){
+    (Math.pow(((1+Math.sqrt(5))/2),n)/Math.sqrt(5));
+
+5.How many times 2no.occuring in 122352322
+    int n = 122352322;
+    int noOfTimes = 0;
+    while(n>0){
+        if(n%10 == 2){
+        noOfTimes +=1; 
+        }
+        n = n/10;
+    }
+    
+6.Reverse
+    int n = 23597;
+    int reverse = 1;
+    while(n > 0){
+        reverse = reverse*10 + n%10;
+        n/=10;
+    }
+    return reverse
+
+7.Reverse array 
+for(int i =0; i< Math.floor(arr.length,2), i++){
+    int temp = arr[i];
+    arr[i] = arr[arr.length-i-1];
+    arr[arr.length-i-1] = temp;
+}
+
+OR
+reverse(int[] arr){
+    start= 0;
+    end = arr.length -1;
+
+    while(start < end){
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end]  = temp;
+    }
+}
+
+⭐8. No.of digits =(int)(Math.log10(number))+1
+
+
+
+⭐9.PALINDROME LEETCODE 9 
+
+    public boolean isPalindrom(String value){
+        if(value.length() == 0){
+            return false;
+        }
+        else{
+            int start= 0;
+            int end = value.length-1;
+
+            while(start < end){
+                if(value.charAt(start) != value.charAt(end)){
+                    return false;
+                }
+                start++;
+                end--;
+            }
+            return true;
+        }
+    }
+
+
+    public boolean isPalindrom(String value){
+        value = value.toLowerCase();
+
+        for(int i = 0; i <= value.length()/2 ; i++){
+            if(value.charAt(i) != vlaue.charAt(value.lenth()-i-1)){
+                return false;
+            }
+            
+        }
+        return true;
+    }
+
+
+⭐10.leetcode 412 fizz words fizzbuzz,fizz,buzz,else number
+public list<String> fizzBuzz(int n){
+    List<String> list = new ArrayList<String>();
+    for(int i =1; i<=n; i++){
+        if(i%3==0 && i%5==0){
+            list.add("FizzBuzz");
+        }
+        else if(i%3 ==0){
+            list.add("Fizz");
+        }
+        else if(i%5==0){
+            list.add("Buzz")
+        }
+        else{
+            list.add(i+"");  //converted to string
+        }
+    }
+    return list;
+}
+
+
+⭐11 leetcode136 -find single number which is not repeting use xor
+public int singleNumber(int[] nums) {
+    int ans =0;
+    for(int i: nums){
+        ans ^=i;
+    }
+    return ans;
+}
+OR -----------------USE SETS 
+public int singlenumber(int[] nums){
+    HashSet<Integer> set = new HashSet<Integer>();
+    for(int i =0; i < nums.length; i++){
+        if(set.contains(nums[i])){
+            //?jr asel tr set madhun kadhun tak 
+            set.remove(nums[i]);
+        }
+        else{
+            set.add(nums[i]);
+        }
+        }
+        return set.iterator().next();       //🔥🔥to get first element from set
+    }
+}
+
+⭐12.LEETCODE 9 NUMBER PALINDROME
+     public boolean isPalindrome(int x) {
+        int original =x;
+        int reversedNumber =1;
+        while(x>0){
+            reversedNumber =reversedNumber*10 + x%10;
+            x=x/10;
+        }
+        
+            return (original == reversedNumber);
+        }
+    
+
+⭐13.LEETCODE 172 FIND FACTORIAL of a number and then find TRAILING ZEROS-for making 0 there should be 5 
+so how many number of 5 there in number is answer
+125! =   5,10,15,20,25.....125
+        1,1 ,1 ,1 ,2times that's the reason 5 is used
+        but 25 has one more 5 so for each 25 we are missing one 5 so
+
+ public int trailingZeroes(int n) {
+        int count =0;
+        while(n>0){
+            n=n/5;
+            count+=n;
+        }
+        return count;         
+    }
+
+
+⭐14.LEETCODE 7 REVERSE INTEGER what if -ve number is there
+if you go by your approach what if large integer it will become owerflow
+
+    public int reverse(int x) {
+        int min = Integer.MIN_VALUE;    //-2147483648
+        int max = Integer.MAX_VALUE;    // 2147483648
+
+        if(x==min || x == max){
+            return 0;
+        }
+
+        int reversed =0;
+        while(x!=0){
+            int lastDigit = x%10;
+
+            //max and min madhla last bit kadhunch check kartoy ki baste ka madhe reversed 
+            if(reverse > max/10) return 0; //for positive integer 
+            if(reverse < min/10) return 0; //for negative integer
+            reversed = reversed*10 + lastDigit;
+            x= x/10;
+        }
+        return reversed;
+
+    }
+
+
+⭐15. LEETCODE 50  POW(X,N)  x can be decimal 
+divide power by 2 means O(log)
+2^10 = 
+1.till power!=0 and if power is multiple of 2 then base = base*base and power = power/2
+2.if power is not multiple of 2 then put one base in result if 4^5 put 4 in result 
+3.if base is negative then make it absolute then find power and then return 1/ans
+
+public double myPow(double x, int n) {
+    long num = Math.abs((long)n);  //if power is -ve then
+    double result = 1.0;
+    while(num !=0){
+        if(num %2==0){     //power divisible by 2
+            result=result*x*x;
+            num = num/2;
+        }
+        else{
+            result = result*x;  //power not divisible by 2 so make it disivible by 2 so remove 1 from power and result madhe base ni multiply kr
+            num = num - 1;  
+        }
+    }
+    return n<0 ? 1.0/result:result; //if power is -ve    
+}
+
+⭐16.LEETCODE 13 ROMAN TO INTEGER 
+I(1),V(5),X(10),L(50),C(100),D(500),M(1000)
+    1.If current roman is less than next then consider current as -ve 
+    2.If current roman is greater than next then consider current as +ve 
+    3.If current roman is == next then consider +ve
+    4.If it's a last roman then consider it as +ve
+
+LVIII = 50,5,1,1,1
+    =   +50+5+1+1+1 = 58
+MCMXCIV = 1000,100,1000,10,100,1,5
+        = +1000-100+1000-10+100-1+5 = 1994
+
+------------------USING MAP DATASTRUCTURE--------------
+public int romanToInt(String s){
+    Map<Character, Integer> map  = new HashMap<>();
+    map.put('I',1);
+    map.put('V',5);
+    map.put('X',10);
+    map.put('L',50);
+    map.put('C',100);
+    map.put('D',500);
+    map.put('M',1000);
+
+    int result = 0;
+    for(int i =0; i<s.length(); i++){
+        if(i< s.length-1 && map.get(s.charAt(i)) < map.get(s.charAt(i+1)))   //i should not be last element as we don't compare last element and value should be -ve for this condition.{
+            result = result-map.get(s.charAt(i));
+        }
+        else{
+            result += map.get(s.charAt(i));
+        }
+    }
+    return result;
+}
+
+⭐17.LEETCODE 12. INTEGER TO ROMAN
+
+⭐18.LEETCODE 344. REVERSE A STRING 
+-convert to array of character 
+
+public void reverseString(char[] s) {
+    int left = 0, right = s.length-1;
+    while(left < right){
+        char temp = s[left];
+        s[left] = s[right];
+        s[right] = temp;
+        left++;
+        right--;
+    }
+
+}
+
+⭐19. LEETCODE 14 LONGEST PREFIX FROM STRING OF ARRAY
+-assume arr[0] is prefix
+-compare startsWith() with other strings and then minimize the arr[0] size
+
+
+public String longestCommonPrefix(String[] strs) {
+    if(strs.length == 0) return "";
+    String prefix = strs[0];
+
+    for(int i =1; i< strs.length; i++){  //from 1 to end 
+        while(strs[i].indexOf(prefix) !=0){  //or strs[i].startsWith(prefix)
+            prefix = prefix.substring(0,prefix.length()-1);
+            if(prefix.isEmpty()) {//no element in prefix 
+                return "";
+            }
+        }
+    }
+        return prefix;
+}
+
+
+⭐20. LEETCODE 187 REPETED DNA SEQUENCE 
+Input: s = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"
+Output: ["AAAAACCCCC","CCCCCAAAAA"]
+---------?---------USING SET AND HASHMAP----------------------------
+Create all substrings of lenght 10
+
+    public List<String> findRepeatedDnaSequences(String s) {
+        Set<String> set = new HashSet<>();
+        Set<String> list = new HashSet<>();  //for answer 
+
+        //aplyala create karaychay 10 sagle substring 
+        for(int i =0; i<= s.length()-10, i++ ){ //10 adhich sodle
+            String substring = s.substring(i, i+10);
+
+            if(set.contains(substring)){
+                list.add(substring);
+            }
+            else{
+                set.add(substring);
+            }
+        }
+        return new ArrayList(list);
+            
+    }
+
+⭐30. LEETCODE 242 ANAGRAMS -same no of alphabets
+-use two hashmaps 
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()) return false;
+
+        Map<Character, Integer> map1 = new HashMap<>();
+        Map<Character, Integer> map2 = new HashMap<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            if (map1.containsKey(s.charAt(i))) {
+                map1.put(s.charAt(i), map1.get(s.charAt(i)) + 1);
+            } else {
+                map1.put(s.charAt(i), 1);
+            }
+        }
+
+        for (int i = 0; i < t.length(); i++) {
+            if (map2.containsKey(t.charAt(i))) {
+                map2.put(t.charAt(i), map2.get(t.charAt(i)) + 1);
+            } else {
+                map2.put(t.charAt(i), 1);
+            }
+        }
+
+        // Now actual check
+        for (char c : s.toCharArray()) {
+            if (!map1.get(c).equals(map2.get(c))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+
+=-------------------OR using array----------------------------------
+//For first string increase the count of the character 
+//For second string decrease the count of the character 
+
+
+⭐⭐31. LEETCODE 5 Longest Palindromic substring WATCH VIDEO
+-Expand around center 
+-start = 0 and end = 0 and let assume first element is longest palindrome so length =1
+-for odd length compare i-1 and i+1
+-for even length compare i and i+1
+        
+    int start = 0, end =0;
+ public String longestPalindrome(String s) {
+    for(int i =0; i<s.lenght(); i++){
+        expandAroundCenter(s,i,i);
+        expandAroundCenter(s,i,i+1);
+    }
+    return s.substring(start,end+1);
+ }
+
+ private void expandAroundCenter(String s, int left, int right){
+    while(left>=0 && right<s.length() && s.charAt(left) == s.charAt(right)){
+        left--;
+        right++;
+    }
+    left = left+1;
+    right = right-1;
+    if(end -start +1 < ( right-left+1)){
+        start = left; 
+        end = right;
+    }
+ }
+    
+    
+    
+    
+    
+⭐⭐32. LEETCODE 3 LONGEST SUBSTRING WITHOUT REPETING CHARACTERS  ---watch video
+-brute force will be get each and every substring we will keep the substring without duplicates only O(n3)
+-assume length of longest substring = 0
+-use hashmap to store the character and it's index
+
+public int lengthOfLongestSubstring(String s) {
+    int ans = 0;
+
+HashMap<Character,Integer> map = new HashMap<>();
+int left = 0;
+for(int right = 0; right<s.length();right++){
+    char ch = s.charAt(right);
+    if(!map.containsKey(ch)){
+        map.put(ch,right);
+    }
+    else{
+        left = Math.max(left,map.get(ch)+1);
+        map.put(ch,right);
+    }
+    ans = Math.max(ans,right-left+1);
+}
+return ans;
+}
+
+
+⭐33. LEETCODE 151 Reverse Words in a String "  The sky   is     beautiful   "
+-reverse whole string twice
+1.reverse whole string by converting to character aray
+2.reverse each word now 
+3.clean extra spaces 
+ OR use .split("")
+public String reverseWords(String s) {
+    String[] words = s.trim().split("\\s+"); // split by one or more spaces
+    StringBuilder sb = new StringBuilder();
+
+    //Reverse loop on words array and append in sb 
+    for (int i = words.length - 1; i >= 0; i--) {
+        sb.append(words[i]);
+        if (i != 0) sb.append(" ");
+    }
+
+    return sb.toString();    //or words.toString()
+}
+
+
+
+⭐34. LEETCODE 273 INTEGER TO ENGLISH WORD 
+-Start from right to left
+-right most three digits will be base means hundred 
+-next 3 digits will be thousand 
+-next 3 digits will be million
+-next 3 digits will be billion 
+123456789 = 123 456 789 =  one hundred twenty three million - four hundred fifty six thousand - seven hundred nine 
+-----------------------------RECURSION----------------------------------------------
+String[] LESS_THAN_20 = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten","Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen",
+"Seventeen", "Eighteen", "Nineteen"}
+String[] TENS = {"", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
+String[] HUNDRED = {"Hundred"}
+String[] THOUSANDS = {"", "Thousand", "Million", "Billion"};
+
+public String numberToWords(int n) {
+    int i=0;
+    while(n!=0){
+        String word = helper(n%1000)+ THOUSAND[i] + word;
+        n =n/1000;
+        i++;
+    }
+
+}
+
+private String helper(n){
+    if(n==0){
+        return "";
+    }
+
+    else if(n<20){
+        return LESS_THAN_20[n];
+    }
+    else if (n<100){
+        return TENS[n/10] +""+helper(n%10);
+    }
+    else{
+        return LESS_THAN_20[n/100]+"Hundred"+helper(n%100);
+    }
+}
+
+
+--------------------------BINARY SEARCH------------------------------------
+⭐35. LEETCODE 704
+ //!WHAT IF WE DON'T KNOW ARRAY IS SORTED IN ASCENDING OR DESCENDING ORDER;
+
+    public int search(int[] arr, int value) {
+      int start = 0;
+        int end = arr.length-1;
+        
+        while(start <= end){
+            int mid = start+(end-start) /2;
+            if(arr[mid] > value){
+                end = mid-1;
+            }
+            else if(arr[mid] < value){
+                start = mid+1;
+            }
+            else{
+                return mid;
+            }
+        }
+        return -1;
+    }
+    
+
+
+⭐36 LEETCODE 33. SEARCH IN ROTATED SORTED ARRY(4,5,6,7,0,1,2,3)
+                //!1.find pivot in array 
+               //!CASE1. arr[mid] > arr[mid+1]    means pivot is mid
+               //!CASE2. arr[mid] < arr[mid-1]      means also pivot
+               //!CASE3=>   START>=MID  then start is also > fURTHER elements of mid so END = MId-1
+               //!CASE4=>   START<MID                    #DO START=MID+1   
+                //!2.Apply binary search in left and right of pivol
+
+public static void main(String[] args) {
+    int[] arr = {4,5,6,7,0,1,2,3};
+
+}
+
+public int findPivot(int[] arr){
+    int start=0;
+    int end = arr.length - 1;
+    
+    while (start < end){
+
+        int mid = start+(end-start)/2;
+            //!#######4CASES##########
+            if (arr[mid]>arr[mid+1] && mid<end){ //or else arrayindexoutof
+                return mid;
+            }  
+            else if (arr[mid]<arr[mid-1] && mid>start){
+                return mid-1;
+            }
+            else if(arr[start]>=arr[mid]){
+                end = mid-1;
+            }
+            else{
+                start=mid+1;
+            }
+    }
+
+    return -1;
+        }
+
+
+private int search(int[] arr, int target) {
+    int pivot = findPivot(arr);
+
+    if(pivot == -1){     //means we cannot find pivot just do binary search
+        return binarySearch(arr,target,0,arr.length-1);
+    }
+    //!pivot is found means search in left and right ascending arrays
+    //!case1. pivot == target
+    //!case2. target > start //search(start,pivot-1)
+    //!case3. target < start //search(pivot+1,end)
+    if(arr[pivot] ==target {
+    return pivot;
+    }
+    if(target >= arr[0]){
+
+        return binarySearch(arr,target,0,pivot-1)  //searching on left
+    }
+    
+        return binarySearch(arr,target,pivot+1,arr.length-1); //searchingo n right
+} 
+
+
+private int binarySearch(int[] arr, int target, int start, int end){
+    while (start <= end) {
+        int mid = start + (end - start) / 2;
+
+        if (arr[mid] == target) return mid;
+
+            if (target < arr[mid]) {
+                end = mid - 1;
+            } else {
+                start = mid + 1;
+            }
+    }
+
+    return -1;
+}
+
+
+
+⭐37. LEETCODE 153 MINIMUM IN ROTATED ARRAY 
+class Solution {
+    public int findMin(int[] arr) {
+        int pivot = findPivot(arr); 
+        
+        // If the array is not rotated
+        if (pivot == -1) return arr[0];
+        
+        // Return the element just after the pivot (which is the minimum)
+        return arr[pivot + 1];
+    }
+
+    public int findPivot(int[] arr) {
+        int start = 0;
+        int end = arr.length - 1;
+
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+
+            // Prevent index out of bounds
+            if (mid < end && arr[mid] > arr[mid + 1]) {
+                return mid;
+            }
+
+            if (mid > start && arr[mid] < arr[mid - 1]) {
+                return mid - 1;
+            }
+
+            // Pivot is in the left half
+            if (arr[start] >= arr[mid]) {
+                end = mid - 1;
+            } else {
+                // Pivot is in the right half
+                start = mid + 1;
+            }
+        }
+
+        return -1; // no pivot found, array is not rotated
+    }
+}
+
+
+
+⭐38. LEETCODE 1 TWO SUM 
+-------------USE HASHMAP-------------
+-store number and the index of that number 
+-if duplicate then store the last index for that number
+-take element from array then target-element present in map no then insert element,index in map
+-else return [mapelement idex, current element index]
+
+public int[] twoSum(int[] nums, int target) {
+    int[] ans = new int[2];         //blank array 
+    HashMap<Integer,Integer> map = new HashMap<>();  //hashmap 
+
+    for(int i =0; i< nums.length; i++){
+        int diff = target- nums[i];
+        if(map.containsKey(diff)){
+            ans[0] = i;
+            ans[1] = map.get(diff);
+            break;
+        }
+        else[
+            map.put(nums[i], i)
+        ]
+
+    }
+
+}
+
+----------OR -----------------------------------------------------
+
+public int[] twoSum(int[] nums, int target) {
+        int [] res = new int[2];
+        for (int i = 0 ; i< nums.length; i++){
+            for(int j = 0 ; j < nums.length; j++){
+                if(i!=j){
+                        if(nums[i] + nums[j] == target){
+                            res[0] = i;
+                            res[1] = j;
+                }}
+            }
+        }
+    return res;
+}
+
+
+
+⭐39. LEETCODE 283 MOVE ZEROS TO RIGHT OF ARRAY
+-1. queue madhe add kar non zero elements 
+-2. ata ek ek kad ani original array madhe inser kr from 0
+
+class Solution {
+    public void moveZeroes(int[] nums) {
+
+        Queue<Integer> queue = new LinkedList<Integer>();
+
+        for(int i =0; i< nums.length; i++){
+            if(nums[i]!=0){
+                queue.add(nums[i]);
+            }
+        }
+
+        int index =0;
+        while(queue.size()!=0){
+            nums[index] = queue.poll();
+            index++;
+            //no need to decrease the size of queue as poll will remove the element and decreases the size 
+        }
+
+        for(int i= index; i<nums.length; i++){
+            nums[i] = 0;
+        }
+        }
+}
+
+
+OR------------------------
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int nonZeroIndex = 0;
+
+        // Step 1: Move all non-zero elements to the front
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                nums[nonZeroIndex] = nums[i];
+                nonZeroIndex++;
+            }
+        }
+
+        // Step 2: Fill the rest of the array with zeros
+        while (nonZeroIndex < nums.length) {
+            nums[nonZeroIndex] = 0;
+            nonZeroIndex++;
+        }
+    }
+}
+
+
+⭐40. LEETCODE 121 BEST TIME TO BUY AND SELL THE STOCK 
+class Solution {
+    public int maxProfit(int[] prices) {
+        int maxprofit = 0;
+
+        for(int i =0; i< prices.length-1; i++){
+           for(int j =i+1; j<prices.length;j++){
+                if(maxprofit < prices[j] - prices[i]){
+                    maxprofit =  prices[j]-prices[i];
+                }
+           }    
+    }
+    return maxprofit;
+}}
+
+OR----------------------------------------easy
+public int maxProfit(int[] prices){
+    if(prices.length ==1) return 0;
+
+    int profit = 0;
+    int left = 0;
+    //right points to second element
+    for(int right = 1; right<prices.length; right++){
+        if(prices[right] > prices[left]){
+            profit = Math.max(profit,prices[right]-prices[left]);
+        }
+        else{
+            left = right;   //shifting left to right
+        }
+    }
+    return profit;
+}
+
+
+⭐41. LEETCODE 383 RANSOM NOTE 
+ransome = "baad" 
+magazine = "abcd"
+tell whether using magazine we can construct the ransome
+above eg is false as in magazine only 1 a 
+-----------HASHMAP=----------------
+-------or use array of 26 alphabets and for magazine add1 and for ransome note remove1 ----------
+to get the index char-'a'
+
+
+class Solution {
+    public boolean canConstruct(String ransomeNote, String magazine) {
+           int[] frequency = new int[26];  //created array 
+
+    for(int i =0; i < magazine.length(); i++){
+        char ch = magazine.charAt(i);
+        frequency[ch-'a']++;
+    }
+
+    for(int i=0; i<ransomeNote.length(); i++){
+        char ch = ransomeNote.charAt(i);
+        
+        if(frequency[ch-'a'] ==0){
+            return false;
+        }
+        
+        frequency[ch-'a']--;
+    }
+    return true;
+    }
+}
+
+
+⭐42. LEETCODE 217. CONTAINS DUPLICATE THEN TRUE ELSE FALSE 
+
+----USE DOUBLE FOR LOOP ----------------
+------OR USE SORT AND IF i ==i+1 return true 
+    public boolean containsDuplicate(int[] nums) {
+    Arrays.sort(nums); 
+    for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == nums[i+1]) {
+                return true;
+            }
+    }
+    return false;
+}
+
+---OR SET DATA STRUCTURE ====----------
+public boolean containsDuplicate(int[] nums) {
+    Set<Integer> set = new HashSet<Integer>();
+
+    for(int i =0; i< nums.length; i++){
+        if(set.contains(nums[i])){
+            return true;
+        }
+        else{
+            set.add(nums[i]);
+        }
+    }
+}
+
+⭐43. LEETCODE58 LENGTH OF LAST WORD 
+public int lengthOfLastWord(String s) {
+    String[] arr = s.trim().split("\\s+");
+    String lastWord = arr[arr.length - 1];
+    return lastWord.length();
+}
+
+    -----------------OR-----------------------------
+    " The sky  is blue  "       so there are spaces as well 
+class Solution {
+    public int lengthOfLastWord(String s) {
+        int right = s.length() - 1;
+
+        // Skip trailing spaces
+        while (right >= 0 && s.charAt(right) == ' ') {
+            right--;
+        }
+
+        int left = right;
+
+        // Move left pointer to the start of the last word
+        while (left >= 0 && s.charAt(left) != ' ') {
+            left--;
+        }
+
+        return right - left;
+    }
+}
+
+
+⭐44. LEETCODE 189 ROTATE ARRAY TO THE RIGHT BY K STEPS 
+-means if array = 1,2,3,4 and k=2
+take last and put at first 
+2,3,4,1
+1.reverse entire array 
+2.reverse the array till k 
+3.reverse remaining array from k+1 to end 
+ 
+class Solution {
+    public void rotate(int[] nums, int k) {
+        k = k%nums.length;      //out of bound so done this 
+        reverse(nums,0,nums.length-1);
+        reverse(nums,0,k-1);
+        reverse(nums,k,nums.length-1);
+    }
+
+    private void reverse(int[] arr, int start, int end){
+        while(start<end){
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+    }
+}
+
+
+⭐45. LEETCODE 55 JUMP GAME 
+-Easy prattek index vr value aahe titka jump karu shakto 
+=pn kuth parant karu shakto value+index is final destination
+public boolean canJump(int[] nums){
+    int reachable = 0;
+
+    for(int i =0; i < nums.length && i <=reachable; i++){
+        reachable = Math.max(reachable, nums[i]+i);
+        if(reachable >=nums.length-1)
+         return true;
+    }
+    return false;
+}
+
+
+⭐46. LEETCODE 238 PRODUCT OF ARRAY EXCEPT SELF found hard his
+[1,2,3,4] ==> [24,12,8,6]
+
+-Use two different array
+-Use prefix product from left to right =(pahie ch product) pp= assume first as 1
+[1,1,2,6]
+-Use suffix product from right to left  = (nantarch product)sp= assume last as 1 
+[24,12,4,1]
+
+Construction these arrays is simple 
+
+-Finally multiply both to get the answer
+[24,12,8,6]
+
+public int[] productExceptSelf(int[] nums){
+    int[] prefixProduct = new int[nums.length];
+    prefixProduct[0] =1 //value 1 at first index of prefix product
+
+    //now construct prefix product 
+    for(int i= 1; i < nums.lenght; i++){
+        prefixProduct[i] = prefixProduct[i-1] * nums[i-1];
+    }
+
+    int suffixProduct = 1;
+    for(int i = nums.length-1; i >=0; i--){
+        //now we will not create extra array for result we will find and directly store in prefixProduct array
+        prefixProduct[i] = prefixProduct[i]*suffixProduct;
+        suffixProduct = suffixProduct*nums[i];
+
+    }
+    return prefixProduct;
+}
+
+⭐47. LEETCODE 1291 SEQUENCTION DIGITS  easy bro
+low = 100
+high = 300
+o/p = [123,234]
+
+SOLUTION - 
+-1,2,3,4,5,6,7,8,9
+find the combination of 3 digits like 
+123,234,345,567,789
+but withing range only 123,234 lies 
+
+public List<Integer> sequentialDigits(int low, int high){
+    String str = "123456789";
+
+    List<Integer> list = new ArrayList<Integer>();
+
+    for(int i =1; i<=9; i++){
+        //generate all substring combinations from lenght 1 to length 9
+        for(int j =0 ; i+j <=9; j++){
+            String temp = str.substring(j,i+j);
+            int val = Integer.valueOf(temp); //converts to integer
+
+            if(val >=low && val <=high){
+                list.add(val);
+            }
+        }
+    }
+    return list;
+}
+
+
+48. LEETCODE 448 FIND ALL MISSING NUMBERS IN AN ARRAY FROM 1TON
+
+public List<Integer> findDisappearedNumbers(int[] arr) {
+    int i = 0;
+    while(i < arr.length){
+        int correct = arr[i]-1;   
+        //as if there are 5 elements then 0 to 4 and we have elements from 0 only so at index 0 value should be 0
+        if(arr[i] != arr[correct]){  //skip N element
+            int temp = arr[i];
+            arr[i] = arr[correct];
+            arr[correct] = temp;
+        }
+        else{
+            i++;
+        }
+    }
+
+    //!after sorting just find missing numbers
+    List<Integer> ans = new ArrayList<>();
+    for(int index = 0; index< arr.length; index++){
+        if(arr[index] != index+1){
+            ans.add(index+1);   //!we are adding the exat value that should be at index means like on index 1 it should be 2 so at index index+1 should be value missing
+        }
+    }
+    return ans;  //no case 2
+}
+
+
+⭐49. LEETCODE 442 FIND ALL DUPLICATES 
+public List<Integer> findDuplicates(int[] arr) {
+    int i = 0;
+    while(i < arr.length){
+        int correct = arr[i]-1;   //as if there are 5 elements then 0 to 4 and we have elements from 0 only so at index 0 value should be 0
+        if(arr[i] != arr[correct]){  //skip N element
+            int temp = arr[i];
+            arr[i]  = arr[correct];
+            arr[correct] = temp;
+        }
+        else{
+            i++;
+        }
+    }
+
+    //!after sorting just check the positions
+    List<Integer> ans = new ArrayList<>();
+    for(int index = 0; index< arr.length; index++){
+        if(arr[index] != index+1){
+            ans.add(arr[index]);   //!here we are directly returning that element
+        }
+    }
+    return ans;
+}
+
+⭐50. LEETCODE 41 FIRST MISSING POSITIVE 
+
+public int firstMissingPositive(int[] arr) {
+    int i = 0;
+    while(i < arr.length){
+        int correct = arr[i]-1;   //as if there are 5 elements then 0 to 4 and we have elements from 0 only so at index 0 value should be 0
+        if( arr[i] > 0 && arr[i] <= arr.length && arr[i] != arr[correct]){  //skip N element
+            int temp = arr[i];
+            arr[i] = arr[correct];
+            arr[correct] = temp;
+        }
+        else{
+            i++;
+        }
+    }
+
+    //!after sorting just check the positions
+    // List<Integer> ans = new ArrayList<>();
+    for(int index = 0; index< arr.length; index++){
+        if(arr[index] != index+1){
+                //!here we are directly returning that element
+        return index+1;
+            
+        }
+    }
+    return arr.length +1;
+}
+
+⭐51. LEETCODE 31. NEXT PERMUTATION
+For example, for arr = [1,2,3], the following are all the permutations of arr: [1,2,3], [1,3,2], [2, 1, 3], [2, 3, 1], [3,1,2], [3,2,1].
+
+1. find the decreasing part from right by using if(i>i+1) so start from second last
+2. find the greater element than the smaller element from right to left and swap
+3. reverse the right part 
+4. base condition will be if i=-1 return means descending order 
+so no further permutation 
+
+class Solution {
+    public void nextPermutation(int[] nums){
+    int i = nums.length-2;
+    while(i>=0 && nums[i]>= nums[i+1]){ //false zhala ki aplyala value bhetel choti
+        i--;
+    }
+
+    if(i>=0){
+        //now from right to left find the greater than this
+        int j = nums.length-1; 
+        while (nums[i] >= nums[j]){
+            j--;
+        }
+        swap(nums,i,j);
+    }
+    reverse(nums,i+1, nums.length-1); //till end reverse
+}
+public void swap(int [] arr, int i, int j){
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}
+
+public void reverse(int[] nums, int i, int j){
+    while(i<j){
+        swap(nums,i,j);
+        i++;
+        j--;
+    }
+
+}
+}
+
+52. NOT ON LEETCODE but popular LARGEST SUBARRAY WITH 0 SUM 
+-------------USE HASHMAP------------------
+as key we will store sum and as value we store index 
+[15,-2,2,-8,1,7,10,23]
+take sum=0 and len=0
+start with 15 and store 15,0 in hashmap 
+one index 2 will we get sum =15 and it is present in hashmap so neglect 15 so length update to 2
+sum(key)   index(value)
+15          0
+13          1
+7           3
+8           4
+25          6
+48          7
+simultaneously modify the len 
+
+int maxLen(int arr[], int n){
+    int sum = 0, len = 0;
+    HashMap<Integer, Integer> map = new HashMap<>();
+
+    for(int i =0; i< n; i++){
+        sum+=arr[i];
+        if(sum ==0){
+            len = i+1
+        }
+        if(sum!=0 && map.containsKey(sum)){
+            len = Math.max(len,i-map.get(sum));
+        }
+        else{
+            map.put(sum,i);
+        }
+    }
+    return len;
+}
+
+
+53. LEETCODE 713 SUBARRAY PRODUCT LESS THAN K 
+Input: nums = [10,5,2,6], k = 100
+Output: 8
+Explanation: The 8 subarrays that have product less than 100 are:
+[10], [5], [2], [6], [10, 5], [5, 2], [2, 6], [5, 2, 6]
+Note that [10, 5, 2] is not included as the product of 100 is not strictly less than k.
+
+1. take L and R 
+2. product =1 and count = 0
+3. check if L is < k then count=1
+4. then R++ adn do product if product < k then count +=(R-L+1)
+5. if product >=k then product /=L  do this till the product is not less than k
+
+
+public int numSubarrayProductLessThanK(int[] nums, int k){
+    int prod =1, count = 0, left =0;
+
+    for(int right= 0; right < nums.length; right++){
+        prod *= nums[right];
+        while(left<=right && prod>=k){
+            prod /= nums[left];
+            left++;
+        }
+        count += right-left+1;
+    }
+    return count;
+}
+
+54. LEETCODE 532 K-DIFF PAIRS IN AN ARRAY 
+Input: nums = [3,1,4,1,5], k = 2
+Output: 2
+Explanation: There are two 2-diff pairs in the array, (1, 3) and (3, 5).
+Although we have two 1s in the input, we should only return the number of unique pairs.
+
+-we have to return the count of unique pairs 
+-sort the array then use two for loops 
+OR-----------USE HASHMAPS-------------
+key(element) value(occurance)
+1.if k=0 then we need the same element at least two times 
+2.if k=2 then for eg 
+[2,1,4,1,5] and k = 2
+so hashmap will be 
+key     value 
+3       1
+1       2
+4       1
+5       1
+
+now traverse the map it's 3 so now 3+k =3+2 = 5 check whether 5 is in map if yes then count++
+
+
+public int findPairs(int[] nums, int k) {
+    if (k < 0) return 0; // k must be non-negative
+
+    Map<Integer, Integer> map = new HashMap<>();
+    int count = 0;
+
+    // Count frequency of each number
+    for (int num : nums) {
+        map.put(num, map.getOrDefault(num, 0) + 1);
+    }
+
+    for (int key : map.keySet()) {
+        if (k == 0) {
+            // Special case: look for duplicates
+            if (map.get(key) > 1) {
+                count++;
+            }
+        } 
+        else {
+            // Look for another number that is key + k
+            if (map.containsKey(key + k)) {
+                count++;
+            }
+        }
+    }
+
+    return count;
+}
+

@@ -1,0 +1,225 @@
+//PRIME NO.S - 
+    for(int i =2 ; i< Math.sqrt(n), i++){       //while c*c <= n
+        if(n%i == 0){
+            retun true;
+        }
+        else false;
+    }
+
+
+//Q1.FIND ALL NO'S LESS THAN 40 
+    if(int i = 0; i <=40 ; i++){
+        if(isPrime(i)){
+            sout(i)
+        }
+    }
+
+Above answer can be reduced suppose if we checked for 4 do we need to check for 6,8,10 noooo
+How to do it?
+    -first we check 2 it says 2 is prime then remove the multiple till 40  and do this only till sqrt(number)
+    -store it in array if prime then circle else cross
+
+boolean[] primes = new boolean[n+1]  //O(n) extra space 
+
+static void sieve(int n, boolean[] primes){
+    for(int i = 2; i*i <=n ; i++){
+        if(!primes[i]){
+            for(int j = i*2; j<=n; j+=i){
+                primes[j] = true;           //true means we are marking it as not prime 
+            }
+        }
+    }
+    
+    for(int i = 2 ; i < = n ; i++){
+        if(!primes[i] == false){
+            System.out.println(i+" " );
+        }
+    }
+}
+
+TIME COMPLEXITY = n(1/2+1/3+1/4+=====)
+                    nlog(logn)
+
+
+
+----------------------------SQUAREROOT OF NUMBER---------------------
+//!USE BINARY SEARCH TO FIND THE ELEMENT 
+
+int n = 40;
+int p = 3;      //numbers after .
+
+
+
+static double sqrt(int n , int p){
+    int start = 0;
+    int end = n;
+
+    double root = 0.0;
+    while(start<=end){
+        int mid = start+(end-start)/2;
+
+        if(mid*mid == n){
+            return mid;
+        }
+        else if ( mid*mid < n){
+            start = mid+1;
+        }
+        else{
+            end = mid -1;
+        }
+}
+    double incr = 0.1;
+
+    for(int i = 0; i < p; i++){
+        while(root * root <=n){
+            root += incr;
+        }
+
+        root -= incr;
+        incr /=10;
+    }
+    return root
+        
+}
+
+
+
+-----NEWTONS METHOD TO FIND THE sqrthttps://www.bikedekho.com/kawasaki/ninja-h2-sportsbike.html
+🔥🔥root = (x+n/x)/2      //x is sqrt you have assumed
+
+why this formula works 
+if x = root(n)
+then 
+root(n) = (root(n)+n/root(n))/2
+root(n) = (root(n)+root(n))/2
+root(n) = root(n)
+
+so if error occurs that means 
+error = root(n)-x 
+
+ANS - 1. Assign x to n 
+    2. you will find ans when error < 1 
+    3.Update value of x = root
+
+static double sqrt(double n ){
+    double x = n;
+    doubel root;
+    while(true){
+        double root = 0.5* ( x + (n/x));
+
+        if(Math.abs(root - x) < 1){
+            break;
+        }
+        x = root;
+    }
+
+    reutrn root;
+}
+
+-------------------------------FACTORS OF NUMBER-----------------------------
+//Divisors
+run loop from 1 to 20 and divide if remainder is 0 then divisors of that 
+5*4 = 20 and 4*5 =20 why to do again then 
+
+static void factor (int n){
+    for(int i = 1; i <= Math.sqrt(n); i++){
+        if(n%i == 0){
+            if(n/i == i){   //like if we are dividign 36 by 6 then we get i and n/i means 6, 6
+                System.out.println(i);
+            }
+            else{
+            System.out.println(i +" "+n/i);  //both are answers
+            }
+        }
+    }
+}
+
+OR 
+In above the n/i will be in descending then we need to put in ascending so use arraylist
+static void factor (int n){
+    Araylist<Integer> list = new ArrayList<>();
+
+    for(int i = 1; i <= Math.sqrt(n); i++){
+        if(n%i == 0){
+            if(n/i == i){   //like if we are dividign 36 by 6 then we get i and n/i means 6, 6
+                System.out.println(i);
+            }
+            else{
+            System.out.println(i);
+            list.add(n/i);
+            }
+        }
+    }
+
+    for(int i = list.size()-1 ; i >= 0; i--){
+        System.out.println(list.get(i)+" ");
+    }
+
+
+------------------------------------------------MODULE PROPERTIES-----------------------
+1.a+b)%m = ((a%m) + (b%m))%m
+2.(a-b)%m = ((a%m) - (b%m) +m) %m 
+3.(a*b) %m = ((a%m)* (b%m))%m 
+4.(a/b)%m = (a%m)*(b^-1 %m)
+5.(a%m)%m = a%m
+6.m^x % m = 0 
+
+
+//IF P IS PRIME NO WHICH IS NOT A DIVISOR OF B THEN ab^(p-1) %p  =a%p
+
+--------------------JUGS PROBLEM--------------------------------------------------------
+3lit jug + 5 lit jug  = make 4 lit jug
+
+fill jug a = s1 times
+jug b emptied = s2 times
+
+remainder = as1 - bs2
+remainder = as1 + (-bs2)
+remainder = as1+ t1b-t1b - bs2
+remainder = L - (t1 + u/b)
+L = s1a + t1b
+s1a = L-t1b
+remainder = s1a + t1b = L
+remainder = ax+by
+
+so 3x + 5y = 4
+put x and y as integer what is the  minimum value you can have 
+like x = -3 and y = 2 
+3x+5y = 1
+This is called as HCF so it is the minimum positive value of equation ax+by where x and y are integers
+
+🔥🔥EUCLEDIAN METHOD TO FIND THE GCD OR HCF 
+   //!Q.4 Greatest Common Divisor (highest common factor) (8,12) = 4
+    //use euclidean algo
+    //gcd(48,18) 
+    //1. divide 48/18 = 2 remainder = 12
+    //2. 18/12 = 1 remainder = 6
+    //3. 12/6 = 2 remainder = 0
+    public int GCD(int a, int b){
+        if(a < 0 || b < 0){
+            return -1;
+        }
+        if(b==0){           //stopping condition
+            return a;
+        }
+        return GCD(b, a % b);
+
+    }
+
+
+   //!Q.5 LCM
+   let say a=9 and b= 18
+   HCF =gcd(a,b) = 9
+   f = a/hcf and g = b/HCF
+   f=1 and g = 2 
+   i.e., a= f*hcf and b= g*hcf
+LCM = F*G*HCF
+
+ a*b = f*hcf * g*hcf
+     = d * dfg  
+    == Hcf * LCM = multiplication of two numbers 
+ 🔥🔥LCM(a,b) = a*b/Hcf(a,b)
+    public int LCM(int a, int b){
+        return a*b / gcd(a,b);
+
+    }

@@ -1,0 +1,91 @@
+//!Fibonacci of 50 is hard to calculate
+
+//!TIME COMPLEXITY--------------------------------------
+-Time complexity != Time taken
+-function gives the relationship about how time grows as input grows
+-y-axis = time and x-axis = size.
+-On old machine and on M2 as size of data grows the time grows relationship is similar
+-Always consider worst case complexity
+-Even though actual time is different like 2n or 3n they are all growing linearly on different machine
+-We don't care about actual time aand that's why we do not consider constants.
+-We consider for large amount of data so ignore non dominant complexities.
+for e.g., O(n^3 + log(n)) and if n = 1million then
+          O(1mil^3 + 6) = does 6 making any sense no so ignore
+
+
+//BIG-O------------------------------------------------
+ -Upper bound cannot exceed this.
+ -f(x) = O(g(x))
+ -lim f(x)/g(x) < infinity
+ -f(x) = (6n^3 + 3n + 5)
+ -g(x) = n3
+    (6n^3 + 3n + 5) =n3
+    lim(n->infinity) (6n^3 + 3n + 5)/n3 = 6 < infinity which is correct
+
+//BIG-OMEGA-------------------------------------------
+-Lower bound connot be less than this
+-lim f(x)/g(x) > 0
+
+
+Q.WHAT IF AN ALGO HAS LOWER AND LOWER BOUND AS N^2
+
+
+//THETA notation--------------------------------------------
+-Average case time complexity 
+- 0 < lim f(x)/g(x) < infinity 
+-Both upper bound and lower bound is n^2
+
+//LITTLE o 
+-Gives loose upper bound 
+-Big O is like f(x) = O(g(x))  means f <= g 
+-Little o is like f < g
+
+//LITTLE OMEGA
+-Gives loose Lower bound
+-Big omega is like f = omega(g) means f>=g 
+-Little omega is like f>g 
+
+
+//SPACE COMPLEXITY ------------------------------------------------------
+-Extra space + space required for input like array
+
+
+
+ //Q. double for loop = O(nm)
+
+ //RECURSIVE ALGORITHM -------------------------------------------
+ -In fibo no two function calls from the same level will not be in the stack at the same time
+ -Only calls which are interlinked will be in stack at same time like fibo(4), fibo(3), fibo(2), fibo(1)  
+ -space complexity = Height of tree OR O(n) as in fibo(4) there are 4 calls in the stack at a time therefor O(n)
+ -Tine complexity =
+
+
+ //2 TYPES OF RECURSIONS-------------------------------------------
+ -1.Linear - like fibonacci (where input grows or reduces linearly)
+ -2.Divide & conquer- like binary search (where input reduces by 2)
+ binary search = T(n) = 2T(n/2) + (n-1)
+ formula = a1b1^p = 1
+ a1= 2 , b1 = 1/2
+    --AKRA BAZZI - T(x)  = theta(x^p + x^p integration from 1 to x g(u)/u^p+1 du)
+ there fore condition satisfied and p =1 put this in akra bazzi formula
+ after solving the integration the answer will be O(nLogn)    ---merge sort
+
+ -SHORTCUT--------------------------------------------------
+ When p < power of g(x) then complexity = O(g(x)) as less dominant term is ignored
+
+
+
+ //SOLVING LINEAR RECURRENCES-----------------------------------------------------
+    -> form of linear = f(x) = a1f(x-1) +a2f(x-2) + a3f(x-3)
+ FIBO(n) = f(n-1) + f(n-2)
+    ->put f(n) = alpha^n for some constant alpha
+  🔥🔥->Final formula fibo(n) = 1/root5(1+root5/2)^n - 1/root5(1-root5/2)^N =
+  ->also (1-root5/2) is less than 1 so if n=infinity then this term is less than 1 then we can ignore it so
+  COMPLEX\ITY ==(1+root5/2)^n = O(1.6180)^n
+
+  public int fibo(int n){
+    (Math.pow(((1+Math.sqrt(5))/2),n) - Math.pow(((1-Math.sqrt(5))/2),n))/Math.sqrt(5);
+  }
+
+
+//IF in the form if g(x) is there then non homogeneous is not there then homogeneous

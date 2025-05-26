@@ -1,0 +1,728 @@
+🧡COMMENTS => --
+🧡IN CMD => mysql -u root -p 
+🧡quit => to come out of mysql
+🧡3306
+🧡system cls => clear mysql
+🧡* => means select all columns
+
+
+
+🧡DATABASE
+⭐select 1+1; 
+⭐system cls; => to clear the terminal
+⭐show databases; => to show the data bases 
+⭐Create databases A; => to create the data bases 
+⭐Use databases A; => to Use the data bases 
+⭐Select databases(); => to know current workng database
+⭐Drop databases A; => to delete the data bases 
+
+🧡TABLES
+⭐CREATE table cats (name varchar(100), age int); => to create table
+⭐SHOW tables; => to show the tables
+🔥🔥SHOW columns from cats     OR SP_help  OR    desc cats; => to show columns of cat tables
+⭐DROP table cats; => to delete the table
+⭐INSERT INTO cats (name, age) 
+   VALUES ('Jenkins', 7); 
+//MULTIPLE INSERTS
+⭐INSERT INTO cats (name, age)                                  //even if you don't give the values to name and age its default is NULL
+   VALUES 
+   ('Meatball', 5), 
+   ('Turkey', 1);
+//CONSTRAINTS
+⭐CREATE TABLE cats2 (
+    age INT NOT NULL
+    );
+
+
+
+🧡'' => Always use single quotes you can use double but to avoide the confusion in other sql databases
+🧡'\' => use backslash to skip the imp notations
+
+🧡DEFAULT 
+⭐CREATE table cats (name varchar(100) NOT NULL DEFAULT 'ANONYMOUSLY', age int NOT NULL DEFAULT 10);
+
+🧡PRIMARY KEY
+⭐CREATE TABLE unique_cats (
+	cat_id INT PRIMARY KEY,                             //here you can give 3999, 1000 but it should not be duplicate and not null and it sorts by itself
+    );
+⭐OR
+    CREATE TABLE unique_cats2 (
+	cat_id INT,
+    PRIMARY KEY (cat_id)
+);
+
+🧡AUTO_INCREMENT
+    CREATE TABLE unique_cats2 (
+	cat_id INT AUTO_INCREMENT,
+    PRIMARY KEY (cat_id)
+);
+
+🧡AUTO_INCREMENT, DEFAULT, NOT NULL, PRIMARY KEY ()
+⭐CREATE TABLE employees (
+    id INT AUTO_INCREMENT,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    middle_name VARCHAR(255),
+    age INT NOT NULL,
+    current_status VARCHAR(255) NOT NULL DEFAULT 'employed',
+    PRIMARY KEY (id)
+);
+
+
+
+🧡KEYWORDS
+⭐SELECT 1*10;
+⭐SELECT * from cats;
+⭐SELECT name, breed FROM cats;
+
+🧡WHERE  ==> Allows to narrow things down
+⭐SELECT * FROM cats WHERE name ='Egg';
+
+🧡ALIAS => it's temporary name to columns
+⭐SELECT cat_id AS id, name FROM cats;
+
+🧡UPDATE =>use comma for multiple updates
+⭐UPDATE cats set name =jenna' where lname = 'racoon';
+⭐UPDATE shirts 
+    SET 
+        color = 'off white',
+        shirt_size = 'XS'
+    WHERE
+        color = 'white';
+
+
+//update and delete karnyachya adhi t baghun ghe tech aahe ka nahi t
+🧡DELETE 
+⭐DELETE from cats;
+⭐DELETE from cats where name = 'chu' Returning name;
+
+
+🧡if book_data.sql file given Then two methods
+⭐in sqlworkbench click on folder icon which says "open-a-script-file-in-this-editor" and import that file there
+⭐DROP
+1)download the file and store it to folder 
+2)open cmd and do cd to goto that directory
+3)create one database and use it
+4)Then write this query (source book_data.sql)                      //The source command reads and executes all the SQL statements contained in a specified file. 
+5)now you can use book tables inside it's
+
+
+🧡STRING FUNCITONS
+⭐concat()
+select concat(fname,' ',lname) as fullname from books;
+
+⭐concat_WS()  => WS means separate with
+select concat_WS('-',fname,' ',lname) as fullname from books;
+
+⭐substring() or substr()
+SELECT SUBSTRING('Hello World', 1, 4);
+SELECT SUBSTRING('Hello World', 7);
+SELECT SUBSTRING('Hello World', -3);
+SELECT SUBSTRING(title, 1, 10) AS 'short title' FROM books; 
+SELECT SUBSTR(title, 1, 10) AS 'short title' FROM books;
+
+🧡SUBSTRING AND CONCAT 
+⭐SELECT CONCAT(SUBSTRING(title, 1, 10),'...') AS 'short title' FROM books;
+
+🧡REPLACE()  ==> only to display not modify the data
+⭐SELECT REPLACE('cheese bread coffee milk', ' ', ' and ');         //working with, to be replaced, replace with
+
+🧡REVERSE()  ==> only to display not modify the data
+⭐SELECT CONCAT(author_fname, REVERSE(author_fname)) FROM books;
+
+🧡CHAR_LENGTH() and Length() ==> length() gives the each character stored in bytes and CHAR_LENGTH() return the value of no.of character
+we mostly char_length() more because when we give chinese language length() even if it is 2 character it gives 6
+⭐SELECT CONCAT(author_fname, REVERSE(author_fname)) FROM books;
+
+
+
+🧡LOWER(), OR LCASE(), UPPER() or UCASE()  ==> only to display not modify the data
+⭐SELECT UPPER(author_fname) FROM books;
+
+🧡INSERT('working with' , where to insert location, how many to replace, what to insert ), 
+⭐SELECT UPPER(author_fname, 3, 0, 'author') FROM books;
+
+🧡LEFT(),RIGHT() 
+⭐SELECT LEFT(author_fname,1) FROM books;   //takes initial fo name
+
+🧡REPEAT() 
+⭐SELECT REPEAT(author_fname,4) FROM books;   //repeats author_fname four times
+
+🧡TRIM() 
+⭐SELECT TRIM('    vaibhav    ') FROM books;   //removes beg and trailing spaces
+⭐SELECT TRIM(leading '.' from '......vaibhav.....') FROM books;   //we can use (LEADING, TRAILING, BOTH)
+
+🧡DISTINCT 
+⭐SELECT DISTINCT author_fname,author_lname FROM books;   //will apply distinct on combinely not individually
+OR
+⭐SELECT DISTINCT CONCAT(author_fname,' ', author_lname) FROM books;
+
+🧡ORDER BY
+⭐SELECT author_fname FROM books ORDER BY author_fname ASC;   //will give all null first
+OR
+⭐SELECT author_fname FROM books ORDER BY author_fname DESC;
+OR
+⭐SELECT id,age,amount FROM books ORDER BY 2;                   //here 2 means second column in selection
+OR
+⭐SELECT id,age,amount FROM books ORDER BY id,amount,age DESC;                   //here applying on first column and then second column then third column
+
+🧡LIMIT
+⭐SELECT author_fname FROM books LIMIT 5;   
+OR
+⭐SELECT id,age,amount FROM books Limit 2,3;                   //first no. is starting row it starts with 0th row and second no. is how many to retrieve
+OR
+⭐SELECT id,age,amount FROM books Limit 2,30000000;                   //it will not give error it returns only that many rows that are below 2nd row
+
+🧡LIKE ==> used when we don't need to do exact match
+⭐SELECT author_fname FROM books WHERE fname LIKE '%:%';            //% means any length of characters   
+OR
+⭐SELECT id,age,amount FROM books WHERE fname LIKE '____';          //only 4 characters long
+OR
+⭐SELECT id,age,amount FROM books  WHERE fname LIKE '%\%%';                   //it will not give error it returns only that many rows that are below 2nd row
+
+
+
+
+🧡AGGREGATION
+🧡count()
+⭐SELECT COUNT(*) from books;               //counts the no.of rows
+⭐SELECT title, COUNT(*) from books;            //never use like this as COUNT(*) gives single row and title gives multiple rows so it's not compatible
+⭐SELECT COUNT(f_name) form books;              //checks whether value is present in that row or not if yes then ++ if no value in f_name then it will not count 
+⭐SELECT COUNT(DISTINCT f_name) form books;              //checks whether value is present in that row or not if yes then ++ if no value in f_name then it will not count 
+⭐SELECT COUNT(*) form books WHERE title like '% the %';        //no of title which contains the in them
+
+
+🧡Group By ==> Aggregates similar rows into single row and note always use aggregation function with it while selecting
+⭐SELECT f_name, COUNT(*) from books Group by name;               //name ni group kar eka row madhe ani count mg eka row madhe kiti row aahet t kadhta
+⭐SELECT 
+    author_lname, COUNT(*) AS books_written
+    FROM
+        books
+    GROUP BY author_lname
+    ORDER BY books_written DESC;
+
+🧡MIN(), MAX() ==> Aggregation funciton
+⭐SELECT MAX(pages) FROM books;
+⭐SELECT MIN(author_lname) FROM books;
+
+Q.) want the title of most pages book?
+💔SELECT MAX(pages), title from books ;         //we cannot do this bcoz we are using aggregation so we need to use similar data not different 
+
+in this case we have to use SUBQUERY    
+SELECT title, pages FROM books WHERE pages = (SELECT MAX(pages) FROM books);        //SUBQUERY
+
+
+Q.)suppose we want how many books does authors has
+⭐SELECT author_fname, author_lname, COUNT(*)           //whenever you do group by use aggregation on that 
+FROM books 
+GROUP BY author_lname, author_fname;                    //group by on fname and lname as there may be same fname or lname or both taken
+ 
+ OR
+ 
+⭐SELECT CONCAT(author_fname, ' ', author_lname) AS author,  COUNT(*)
+FROM books
+GROUP BY author;
+
+
+Q.)find the first book of each author
+⭐SELECT f_name, l_name, min(released_year), max(pages) from books  group by f_name, l_name;
+⭐SELECT 
+	author_lname, 
+        author_fname,
+        COUNT(*) as books_written, 
+        MAX(released_year) AS latest_release,
+        MIN(released_year)  AS earliest_release
+    FROM books GROUP BY author_lname, author_fname;
+
+
+
+🧡SUM()
+⭐SELECT author_lname, COUNT(*), SUM(pages)         //these aggregation count and sum applied on each group of group by
+    FROM books
+    GROUP BY author_lname;
+
+
+🧡AVG()
+⭐SELECT 
+    released_year,                          //these aggregation count and avg applied on each group of group by
+    AVG(stock_quantity),                    
+    COUNT(*) FROM books
+GROUP BY released_year;
+
+⭐SELECT 
+    released_year AS year,
+    COUNT(*) AS '# books',              //when you want to give space in column name then use ''
+    AVG(pages) AS 'avg pages'
+FROM books
+GROUP BY released_year
+ORDER BY released_year;
+
+
+
+🧡🧡DATATYPES
+🧡char => fixed length, used for zipcodes, y/n flags, waste of memory, if less length string given then remaining is filled with white spaces , and while retrieving spaces are removed
+🧡varchar => variable length, doesnot waste memory by using white spaces
+if you are inserting data greater than specified then it will give error 
+
+🧡🧡NUMERIC
+🧡TinyINT => 1byte whole no.
+🧡smallINT =>2byte whole no.
+🧡MediumINT => 3byte whole no.
+🧡INT => 4byte whole no.
+🧡BigINT => 8byte 
+
+🧡🧡DECIMAL, Float, Double
+⭐create table products(price DeCIMAL(5,2))                 //here 5 is total digits and 2 is no.of digits after decimal you can even give more digits after decimal it will auto roundoff 
+
+🧡FLOAT and DOUBLE can store large numbers with small space than deciaml
+🧡float takes 4BYTES and double takes 8Bytes
+🧡float can handle 7digits after decimal and double can handle 15 digits after decimal 
+
+
+🧡🧡DATE, TIME, DATETIME
+🧡DATE => yyyy-mm-dd
+🧡TIME => HH:MM:SS
+🧡DATETIME => yyyy-mm-dd HH:MM:SS
+⭐CREATE TABLE people (
+	name VARCHAR(100),
+    birthdate DATE,
+    birthtime TIME,
+    birthdt DATETIME
+);
+
+🧡🧡CURRENT DATE AND TIME METHODS
+🧡CURRENT_TIME()
+🧡CURRENT_DATE()
+🧡CURTIME()
+🧡CURDATE()
+🧡NOW()                     //now() gives datetime both
+🧡CURRENT_TIMESTAMP()       
+⭐INSERT INTO people (name, birthdate, birthtime, birthdt)
+   VALUES ('Hazel', CURDATE(), CURTIME(), NOW());
+
+
+🧡🧡 DATE methods
+🧡DAY()
+🧡MONTH()
+🧡YEAR()
+🧡DAYOFWEEK()
+🧡DAYOFYEAR()
+🧡MONTHNAME()
+🧡DAYNAME()
+⭐SELECT 
+    birthdate,
+    DAY(birthdate),                       //birthdt has type datetime
+    DAYOFWEEK(birthdate),
+    DAYOFYEAR(birthdate)
+    FROM people;
+
+
+🧡🧡 TIME methods
+🧡HOUR()
+🧡MINUTE()
+🧡SECOND()
+⭐SELECT 
+    birthtime,
+    HOUR(birthtime),
+    MINUTE(birthtime)
+FROM people;
+
+
+🧡🧡 DATETIME methods
+🧡DATE(birthdt)
+🧡TIME(birthdt)
+🧡SECOND()
+🧡DAYOFWEEK()
+🧡DAYOFYEAR()
+🧡MONTHNAME()
+⭐SELECT 
+    birthdt,                    //birthdt of type datetime
+    MONTH(birthdt),
+    DAY(birthdt),
+    HOUR(birthdt),
+    MINUTE(birthdt)
+FROM people
+       
+
+🧡🧡FORMATTING => DATE_FORMAT(column with which you are working, 'format using %a,%b,%c,%d')
+Specifier Description
+%a                 Abbreviated weekday name (Sun..Sat)
+%b                  Abbreviated month name (Jan..Dec)
+%C                  Month, numeric (0..12)
+%D                  Day of the month with English suffix (0th, 1st, 2nd, 3rd, ...)
+%d                  Day of the month, numeric (00..31)
+%e                  Day of the month, numeric (0..31)
+%f                  Microseconds (000000..999999)
+%H                 Hour (00..23)
+%h                  Hour (01..12)
+%1                  Hour (01..12)
+%i                 Minutes, numeric (00..59)
+%j                  Day of year (001..366)
+%k                 Hour (0..23)
+%1                  Hour (1..12)
+⭐SELECT birthdate, DATE_FORMAT(birthdate, '%a %b %D') FROM people;
+⭐SELECT birthdt, DATE_FORMAT(birthdt, '%H:%i') FROM people;
+⭐SELECT birthdt, DATE_FORMAT(birthdt, 'BORN ON: %r') FROM people;
+
+
+🧡🧡DATE  AND TIME MATH
+⭐select DATEDIFF(CURDATE(), column name)              //we also have TIMEDIFF 
+⭐select DATEADD(CURDATE(), INTERVAL 1 MONTH)
+OR
+⭐select CURDATE()  + INTERVAL 1 MONTH
+
+
+
+🧡🧡TIMESTAMP
+🧡similar to datetime but timestamp ranges from (is '1970-01-01 00:00:01.000000' to '2038-01-19 03:14:07.999999')
+and datetime ranges from (1000-01-01 00:00:00.000000' to '9999-12-31 23:59:59.999999)
+
+🧡🧡Default timestamp
+⭐CREATE table captions(cretedOn TIMESTAMP default CURRENT_TIMESTAMP,
+                         updateOn TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)           //whenever text or anything changed it will auto update itself
+
+
+
+🧡🧡OPERATORS
+🧡!= => ⭐SELECT * FROM books
+WHERE released_year != 2017;
+
+🧡NOT LIKE => ⭐SELECT * FROM books
+WHERE title NOT LIKE '%e%';
+
+🧡> => ⭐SELECT * FROM books
+WHERE released_year > 2005;
+⭐SELECT 1>NULL;          //returns NULL
+⭐SELECT 100>2;          //returns 1 as true
+
+🧡< => ⭐SELECT * FROM books
+WHERE pages < 200;
+⭐SELECT * FROM books
+WHERE released_year <= 1985;         //returns 1 as true
+
+
+🧡AND => ⭐SELECT title, author_lname, released_year FROM books
+WHERE released_year > 2010
+AND author_lname = 'Eggers'
+AND title LIKE '%novel%';
+
+
+
+🧡OR => ⭐SELECT title, pages FROM books
+WHERE pages < 200 
+OR title LIKE '%stories%';
+
+
+🧡BETWEEN and NOT BETWEEN => 
+⭐SELECT title, released_year FROM books
+WHERE released_year BETWEEN 2004 AND 2014;
+
+
+🧡CAST => 
+⭐SELECT * FROM people WHERE birthtime 
+BETWEEN CAST('12:00:00' AS TIME) 
+AND CAST('16:00:00' AS TIME);
+⭐SELECT * FROM people WHERE HOUR(birthtime)                //taking hour from birthtime column
+BETWEEN 12 AND 16;
+
+
+
+🧡IN  NOT IN=> 
+⭐SELECT title, author_lname FROM books
+WHERE author_lname NOT IN ('Carver', 'Lahiri', 'Smith');
+
+
+🧡CASE STATEMENTS=>  only one gets execute , no comma after each when then
+⭐SELECT title, stock_quantity,
+    CASE
+        WHEN stock_quantity BETWEEN 0 AND 40 THEN '*'
+        WHEN stock_quantity BETWEEN 41 AND 70 THEN '**'
+        WHEN stock_quantity BETWEEN 71 AND 100 THEN '***'
+        WHEN stock_quantity BETWEEN 101 AND 140 THEN '****'
+        ELSE '*****'
+    END AS stock
+FROM books;
+
+
+🧡IS NULL, IS NOT NULL =>                                            //we use this bcoz = NULL don't work so we use IS NULL
+⭐SELECT title from books where title IS NULL;
+
+🧡🧡quesiton
+⭐SELECT author_fname, author_lname,
+	CASE
+        WHEN COUNT(*) = 1 THEN '1 book'
+        ELSE CONCAT(COUNT(*), ' books')
+	END AS count
+FROM books
+WHERE author_lname IS NOT NULL
+GROUP BY author_fname, author_lname;
+
+
+🧡🧡CONSTRAINTS
+🧡UNIQUE => 
+⭐CREATE TABLE contacts (
+	name VARCHAR(100) NOT NULL,
+    phone VARCHAR(15) NOT NULL UNIQUE
+);
+
+🧡CHECK =>  customized constraint
+⭐CREATE TABLE contacts (
+	age NOT NULL CHECK (age>20););
+
+⭐CREATE TABLE palindromes (
+  word VARCHAR(100) CHECK(REVERSE(word) = word)
+)
+
+🧡named constraint=>  customized constraint
+⭐CREATE TABLE contacts (
+	age NOT NULL,
+    CONSTRAINT age_above_20 CHECK (age>20)                  //if error then gives age_anove_20 violated
+);
+
+🧡named constraint on multiple column=>  customized constraint
+⭐CREATE TABLE contacts (
+	age NOT NULL,
+    CONSTRAINT name_address UNIQUE(name , address)              //name and address combination should be unique 
+);
+⭐CREATE TABLE houses (
+  purchase_price INT NOT NULL,
+  sale_price INT NOT NULL,
+  CONSTRAINT sprice_gt_pprice CHECK(sale_price >= purchase_price)
+);
+
+
+🧡🧡ALTER
+🧡ALTER ADD=> for columns
+⭐ALTER TABLE companies
+ADD COLUMN employee_count INT NOT NULL DEFAULT 1;               //if not null not given then NULL will be there and if default not given then 0 will be there
+
+🧡ALTER DROP=>
+⭐ALTER TABLE companies DROP COLUMN if Exists phone CASCADE;    //cascade if any dependencies and if exsists to handle
+
+🧡ALTER Rename=>
+⭐ALTER TABLE companies RENAME to Organization;   
+⭐ALTER TABLE companies RENAME column kellogs to Organization;   
+
+🧡ALTER MODIFY/CHANGE=>  to modify the columns datatype 
+⭐ALTER TABLE companies MODIFY column company_name varchar(100) Default 'no name';   
+⭐ALTER TABLE companies CHANGE column company_name varchar(100) Default 'no name';
+
+
+🧡ALTER ADD=> if we want to add Named COnstraint
+⭐ALTER TABLE houses 
+ADD CONSTRAINT positive_pprice CHECK (purchase_price >= 0);         //positive_pprice is name of that constraint
+⭐ALTER TABLE houses DROP CONSTRAINT positive_pprice;
+
+
+
+🧡🧡RELATIONSHIP AND JOINS
+🧡one-one => one user can have only one driver licence and one driver licence can be of only of one user
+🧡one-many => one user can have multiple orders and one order can be of only single user
+⭐CREATE TABLE customers (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(50)
+);
+CREATE TABLE orders (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    order_date DATE,
+    amount DECIMAL(8,2),
+    customer_id INT,
+    FOREIGN KEY (customer_id) REFERENCES customers(id)              //foreign key
+);
+ 
+INSERT INTO customers (first_name, last_name, email) 
+VALUES ('Boy', 'George', 'george@gmail.com'),
+       ('George', 'Michael', 'gm@gmail.com'),
+       ('David', 'Bowie', 'david@gmail.com'),
+       ('Blue', 'Steele', 'blue@gmail.com'),
+       ('Bette', 'Davis', 'bette@aol.com');
+       
+INSERT INTO orders (order_date, amount, customer_id)
+VALUES ('2016-02-10', 99.99, 1),
+       ('2017-11-11', 35.50, 1),
+       ('2014-12-12', 800.67, 2),
+       ('2015-01-03', 12.50, 2),
+       ('1999-04-11', 450.25, 5);
+
+🧡many-many => one user can create multiple  accounts in bank and one bank can have multiple accounts of users
+
+
+🌼🌼💥💥💥JOIN ==> both tables whole columns present in result
+🧡🧡CROSS JOIN  -- To perform a (kind of useless) cross join:
+⭐SELECT * FROM customers, orders;                                //every row of this table attached with every row of that table
+
+🧡🧡INNER JOIN or just JOIN (we will get overlap data)
+⭐SELECT * FROM customers
+   JOIN orders 
+   ON orders.customer_id = customers.id;
+ 
+ //total amount spend by each customer
+⭐SELECT 
+    first_name, last_name, SUM(amount) AS total         //as we are grouping on them combinely
+FROM
+    customers JOIN orders ON orders.customer_id = customers.id
+GROUP BY first_name , last_name
+ORDER BY total;
+
+🧡🧡FOREIGNKEY ==> is says that every value in foreignkey column is to be there in primary key where it is referencing, its value can be NULL
+
+🧡🧡LEFT JOIN (we take every row of left table and it will give NULL value in column of other table)
+⭐SELECT * FROM customers LEFT JOIN orders 
+   ON orders.customer_id = customers.id
+
+//using groupby and ifNULL(,)
+Q.)we want total amount spended by customer but due to left join few customers amount will be null so in that place replace it with 0 so use IFNULL(,)
+⭐SELECT f_name,l_name, IFNULL(sum(amount,0)) FROM customers LEFT JOIN orders 
+   ON orders.customer_id = customers.id
+   Group by f_name,l_name
+
+
+🧡🧡RIGHT JOIN (we take every row of right table and it will give NULL value in column of left table)
+⭐SELECT 
+    first_name, last_name, order_date, amount
+FROM customers RIGHT JOIN orders ON customers.id = orders.customer_id;
+
+//using groupby and ifNULL(,)
+Q.)we want total amount spended by customer but due to left join few customers amount will be null so in that place replace it with 0 so use IFNULL(,)
+⭐SELECT f_name,l_name, IFNULL(sum(amount),0) FROM customers LEFT JOIN orders 
+   ON orders.customer_id = customers.id
+   Group by f_name,l_name
+
+
+🧡🧡🧡 ON DELETE CASCADE 
+we have two tables 1)customer 2)order    now if we delete any customer details it will not get deleted as order table has foreign key which is referencing customer table 
+so in this case while creating order table while we are giving foreign key constraint give ON DELETE CASCADE 
+so due to this when we are deleting customer in customer table id related to it will get deleted in order table as well
+⭐CREATE TABLE customers (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(50)
+);
+CREATE TABLE orders (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    order_date DATE,
+    amount DECIMAL(8 , 2 ),
+    customer_id INT,
+    FOREIGN KEY (customer_id) REFERENCES customers(id) ON DELETE CASCADE        //we gave it here⭐
+);
+
+
+🧡🧡🧡EXERCISE
+🧡we can print any column on which we are doin the join
+🧡if table-1 columns are on the left side in result then left join
+🧡if table-1 columns are on the right side in result then right join
+Q)
+CREATE TABLE students (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50)
+);
+ 
+ 
+CREATE TABLE papers (
+    title VARCHAR(50),
+    grade INT,
+    student_id INT,
+    FOREIGN KEY (student_id)
+        REFERENCES students (id)
+);
+ 
+ 
+SELECT 
+    first_name, title, grade
+FROM
+    students
+        JOIN
+    papers ON papers.student_id = students.id
+ORDER BY grade DESC;
+ 
+ 
+ 
+SELECT 
+    first_name, title, grade
+FROM
+    students
+        LEFT JOIN
+    papers ON papers.student_id = students.id;
+ 
+ 
+ 
+SELECT 
+    first_name, IFNULL(title, 'MISSING'), IFNULL(grade, 0)
+FROM
+    students
+        LEFT JOIN
+    papers ON papers.student_id = students.id;
+ 
+ 
+ 
+SELECT 
+    first_name, IFNULL(AVG(grade), 0) AS average
+FROM
+    students
+        LEFT JOIN
+    papers ON students.id = papers.student_id
+GROUP BY first_name
+ORDER BY average DESC;
+ 
+ 
+ 
+SELECT 
+    first_name,
+    IFNULL(AVG(grade), 0) AS average,
+    CASE
+        WHEN IFNULL(AVG(grade), 0) >= 75 THEN 'passing'
+        ELSE 'failing'
+    END AS passing_status
+FROM
+    students
+        LEFT JOIN
+    papers ON students.id = papers.student_id
+GROUP BY first_name
+ORDER BY average DESC;
+
+
+
+
+🧡🧡🧡MANY TO MANY RELATIONSHIPS
+Books and Author
+Student and Classes
+
+CREATE TABLE reviewers (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL
+);
+ 
+CREATE TABLE series (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(100),
+    released_year YEAR,
+    genre VARCHAR(100)
+);
+ 
+CREATE TABLE reviews (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    rating DECIMAL(2 , 1 ),
+    series_id INT,
+    reviewer_id INT,
+    FOREIGN KEY (series_id)
+        REFERENCES series (id),
+    FOREIGN KEY (reviewer_id)
+        REFERENCES reviewers (id)
+);
+
+⭐SELECT title, rating
+FROM series JOIN
+reviews ON series.id = reviews.series_id;
+
+⭐SELECT 
+    title, ROUND(AVG(rating), 2) AS avg_rating
+FROM
+    series
+        JOIN
+    reviews ON series.id = reviews.series_id
+GROUP BY title
+ORDER BY avg_rating;

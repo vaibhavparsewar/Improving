@@ -1,0 +1,9 @@
+npm init --yes 
+npm i express dotenv multer pdfkit
+npm i @google/generative-ai  //to use api in node.js
+and use it in app.js 
+const {GoogleGenerativeAI} = require("@google/generative-ai");
+
+//Go to gemini api create api and copy the api key
+//insted of server.js use app.js
+//.env file to secure the sensitive data

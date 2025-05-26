@@ -1,0 +1,454 @@
+
+💘
+CASCADING(precedence) - if multiple styes applied on single object which one to choose 
+STYLE - property
+SHEET - file containing the properties
+
+💘
+INLINE CSS - <h1 style = "color:blue">werr</h1>
+INTERNAL CSS - under head tag use <style>
+                                    h1{
+                                       color:blue;
+                                    }
+                                 </style>
+EXTERNAL CSS - file of css and linking 
+               <link rel="stylesheets" href="./style.css">
+
+
+💘SELECTOR
+UNIVERSAL - *
+ID SELECTOR - #
+CLASS SELECTOR - .
+
+
+🤎GROUPING SELECTOR 
+h1,h2{
+   color:red;
+}
+
+🤎ATTRIBUTE SELECTOR 
+<ul>
+   <li data-priority = "high">hi<li>
+   <li data-priority = "high">hi<li>
+   <li data-priority = "low">hi<li>
+</ul>
+
+CSS
+[DATA-PRIORITY= "HIGH"]{
+   color:red;
+}
+
+🤎DECENDENT SELECTOR(giving color to grand child of parent)
+.container p{     //style all p under the parent who has class as container
+  color:red;
+}
+
+
+.container > h1 {    //h1 is direct child so will be applied and if it's not direct child then it won't be applied
+   color:red;
+}
+
+
+💔PRECEDENCE
+inline > id >class,attribute > element(p,div)
+
+💘BOX MODEL 
+border, padding, margin
+
+💘POSITION     //always use top,right,left,bottom to see the effects
+ parent sathi relative  ani child sathi absolute
+-STATIC 
+position:static                     //CANNOT BE TOP LEFT RIGHT BOTTOM
+
+-RELATIVE
+position:relative                  //parent element is always relative if parent moves then child wiht absolute will also move  
+
+-ABSOLUTE
+{
+   position:absolute;  
+   top:20px;
+   //body madhe ha element consider kela jat nahi ani mg apan yala kuthe pn place karu shakto based on relative positioned parent element if there is no element with relative positioned then screen is considered as relative
+}
+
+-FIXED - unlike absolute it will look for browser window for position not the relative parent
+{
+   position:fixed
+   top:0;
+   left:0;
+   right:0;       //once we do right 0 it will get stretched and it gets sticked to top of browser window and scroll will show that
+}
+
+-STICKY
+ position:sticky;
+ top:1px;          
+
+
+
+
+
+id are unique in html file
+
+
+block,inline,inline-block,flex
+display:block;              //TAG TAKES WHOLE WIDTH
+display:inline;                 //you cannot add separate height and width
+display:inline-block;           //solves problem
+
+BY DOING INLINE-BLOCK WE GET MESSED UP ONE UPSIDE ANOTHER DOWNSIDE SO use
+vertical-align:top;
+
+
+
+💘 VERY VERY IMPORTANT WHEN YOU ARE USING IMAGES IN WEBSITE
+html{
+   box-sizing:border-box             //it will not go out of box or container
+   box-shadow:0 2px 4px rgba(0,0,0,0.2)      //0.2 is opacity
+   background-image: linear-gradient(120deg, red 0$ , blue);
+}
+
+*, *:before, *:after{
+   box-sizing:inherit             //it will not go out of box or container
+   margin:0px;
+   padding:0px;
+}
+
+
+💘if child getting out of container of parent 
+overflow:hidden;
+
+
+💘List 
+list-style:none , square;     //removes bullets
+
+💘TO MAKE TEXT IN CENTER IN HEIGHT
+line-height: "jitka container ch size aahe titka"
+
+💘POSITION      parent sathi relative  ani child sathi absolute
+position:static
+position:relative                  //scroll kela ki navbar chya vr dista    
+ position:absolute                  //parent (i.e j ki relative aahe) tyach madhech he child absolute ast mhnje parent ch baher jau shakat nahi 
+ position:fixed
+ position:sticky
+
+ 💘 NAV BAR.
+ position:fixed;
+ top:0;
+ left:0;                    //fixed navbar even scrolled
+ width:100vw;               //view window width
+
+ 💘 z-index                 //layers
+z-index:3                   //top layer
+
+ 💘float                 //inline element la left or right la thevaysathi
+float:left                  //top layer
+
+ 💘 border-radius around 4to7px                 //layers
+ 💘 padding,margin around 10to20px                 //layers
+
+
+ 💘mostly we use % for width and are used to make it more responsive
+ 💘mostly we use em or rem for text rem(1 rem means 100% size related to root element size) manje root element change kela ki sagle rem use kelela change hoil
+
+
+ 💘 Color                 
+    color:rgb(red,green,blue)
+    color:rgba(red,green,blue,opacity(0,0.5,1))
+
+
+💘Image
+background-image: url(link);
+background-size:cover;
+object-fit:cover;             //to make the image fit property
+background-repeat:no-repeat;
+background-position:right;
+
+
+💘if we have body and two boxes on parallel
+//DOGHANCH J KONI PARENT AE KIVVA BODY LA DISPLAY:FLEX; LAV
+
+
+gap:10
+cursor:pointer;
+transform:rotate(45deg)       //TO ROTATE TEXT
+overflow:hidden;        //extra baher gelela cut karta
+opacity:0.9;      //text opacity
+letter-spacing: 1px;
+
+💘 ON HOVER
+button:hover{
+   transform:scale(1.1)
+}
+
+
+font-weight:bolder;
+text-transform: uppercase;
+text-decoration: none;
+max-width :800px;
+margin: 20px auto;         //make the content center as auto from left and right
+
+
+
+💘bottom section la display:flex lav ani felx-direction:column; lav mhnje mobile vr column disal ani @media query desktop sathi flex-direction:row kr eka bajula ek karnyasathi
+💘ani bottom section che j don dabbe aahet tyanna flex-basis:50% de mhnje jitka pb emptcy space aahe t acquire karel
+
+💘ORDER
+order:4;
+
+
+💘desktop implement kartana
+@media (min-width:576px)                  //below 576 is mobile device
+
+
+💘PSEUDO CLASS 
+FOR LINKS(order khali je dilay tech thev)
+a:link{
+   text-decoration:none;
+}                                  //unvisited link
+a:visited{color:red;}                               //visited
+a:hover{}                                   //hover
+a:active{}                                     //activ
+a:focus{}                        //when you click on link it will apply all styles
+
+
+💘child la lavaych asal tr 
+li:first-child{}
+li:last-child{}
+li:nth-child(n){}                //n can be "even" or "odd" means all styles are applied on odd childs or even childs
+
+
+💘ek paragraph element aahe jyat kahi nahi t space khayle mg udavla 
+p:empty{
+   display:none
+}
+p:not(.special){        //select all paragraph except paragraphs of special class
+}
+
+:where(p,div).author{   //select all p and div of class author
+}
+
+
+💘::before, ::after       //used for content insertion
+.title::before{
+   content:"💜";
+}
+
+
+💘::first-line, ::first-line     //first letter of title can be changed
+.title::first-letter{
+}
+
+
+💘::selection           //text select karto na t walal
+::selection{
+   color:white;
+   background-color:navy;
+}
+
+
+💘FLEXBOX(flexible box is alternative for float) flexbox playground website
+flex container contains items called flex items
+container{
+   display:flex                                             //or inline-flex
+   flex-direction:row;                                        //default we have row (column,row-reverse,column-reverse)
+
+   💥use justify-content and align-item for single line flex items and align-content for multiline flex items
+   justify-content:(flex-start,center,space-between,space-around, space-evenly,end)      //flex-direction cha hishobani mhanje row tr row wise ani column asla tr column wise
+   align-item:(flex-start,flex-end,center,baseline)                        //flex-direction row asal tr he column wise move hotil ani column asal tr row wise items move hotat
+   align-content:                                              //when extra space is available
+   
+   
+💘DABBE CH BAHER JAT ASAL tr
+overflow:auto;
+//OR
+flex-wrap:wrap;
+//and then we use align-item  but it don't work so use align-content:flex-start;
+
+💘PARTICULR CONTAINER LACH HALVAYCH ASAL tr
+align-self:flex-start;                          //particularr flex item la halvaych tr lav
+
+💘EXTRA SPACE ASAL AVAILABLE ANI PARTICULAR FLEX ITEM MADHE HE LAU SHAKTO T EXTRA SPACE USE KARAYLA
+felx-grow:0;       //particular element madhe lihu shakto. jr value 1 asal tr t element empty space use karal 2,3,4,5 of total window width
+
+flex-shrink:1;
+felx-basis:calc(33.33% - 30px) ;                                               // same grow sarkhach pn 50% dyaych mhnjechangla
+
+flex:0 1 auto;
+flex-wrap:wrap        //wrap,nowrap,wrap-reverse   mhnje overflow zhalele next line la distat wrap kela ki
+text-align:center                                                 //horizontal center madhe
+}
+
+
+
+💘VARIABLES(container to which we assign the value)
+:root{
+   --primary-color: white;
+   --secondary-color:green;
+   --accent-color:red;
+   --text-color:black;
+   --bg-color:cyan;
+   --while:white;
+}
+
+//HERE ROOT IS THE VARIABLE
+//to use it 
+*{
+   background-color: var(--bg-color);
+   background: linear-gradient(135deg, rgba(23,24,52,0.4), rgba(23,52,63,0.3), url("image url"), height:100vh));
+}
+
+
+
+💘 RESPONSIVE 
+Use lt browser website where you can check the responsiveness by pasting your site url madhe tula mobile ani desktop disal just copy kar tuza html chi link and paste in website
+
+-The viewport is the visible area of a web page on a display device,
+and initial scale refers to the initial zoom level when the page is first
+loaded. Both are essential for implementing RWD effectively.
+
+<meta name="viewport" content="width=device-width", initial-scale=1.0" />
+@media all and (min-width:600px)   // means if window.innerWidth==600px then text color to greeen
+h1{
+   color:green;
+}
+/* and for image*/
+image{
+   width:auto;
+}
+
+
+💘 Breakpoints
+xs: < 576px
+s > 576px
+m > 768px
+l > 992px
+xl >1200ox
+mobile: 320px to 480px
+tablets: 481 to 768
+laptop: 769 to 1024
+desktops: 1025 to 1200
+tv: 1201 to 999999999px
+
+
+💘 @media types
+@media
+@media all 
+@media print
+@media screen
+
+
+💘jastit jast window 500px parant kami hou shakte yala breakpoint mhntat  
+min-width for mobile first
+max-width for desktop first
+@media (min-width:500px) and (max-width:700pc){    //more than this min-width
+   .header{
+      color:red;              //means apply color red when window size is between 500 to 700px   }
+}
+}
+
+@media all and (min-width=400px)   he ani he same aahet @media (min-width:400px)
+
+@media and (orientation:portrait){}  
+@media and (orientation:landscape){}  
+
+
+transition: color 0.3s;
+use this insted of a:hover and changing color 
+
+
+
+
+//----------------------------------------------------------BOOTSTRAP----------------------------------------
+-front-end framework
+goto bootstrap > docs
+👽 TWO WAYS TO USE 
+1. cdn
+   -copy the cdn both links one is to be paste in header and one in <body><script>url here</script></body>
+   -inspect > network > All here bootstrap should have status 200
+2. download
+    -Download go to files and css > bootstrap.min.css drag and put in styles folder of vs code
+    -Again go to downloaded folder > js > bootstrap.min.js drag and put in script folder of vs code 
+    -Under <head> <link rel="stylesheet" href="styles/bootstrap.min.css"
+    -under <body> <script src="script/bootstrap.min.js"></script>
+    --inspect > network > All here bootstrap should have status 304 means success
+
+-Another link for js is present in cdn this is popper js which contains drop down
+
+👽INSTALL BOOTSTRAP IN REACT JS
+1. REACT-BOOTSTRAP librar🔥VITE
+   -get started
+   -npm create vite@latest
+      -. enter
+      -react-installation
+      -select the framewoerk as React and then java script finally do npm i and then npm run dev
+      -under App.jsx change the code and then Ctrl+s 
+      -insert the cdn urls in head and body
+      -copy the style and script file in src of react folder
+
+      TO USE BOOTSTRAP IN REACT code npm install react-bootstrap bootstrap
+
+👽CONTENT in BOOTSTRAP WEBSITE
+1.TYPPOGRAPHY
+class = "text-danger";     //primary,secondary,success, danger,light, info, warning, dark, muted,
+class = "bg-light";
+class = "bg-custom-lightblue"
+
+class = "text-start"    //center,end 
+class = "text-start mt-5 mb-5 p-3"    //margin top, margin bottom, padding
+class = "text-wrap"
+class = "text-tolowercase"    //uppercase, capitalize
+
+
+class = "fw-bold"    //font weight bolder,light,normal,lighter,italic
+class = "fs-1"       //font size
+
+class = "dsplay-1"      //to 6
+
+2. HELPER
+class = "text-bg-primary"
+
+3. UTILITIES
+class = "d-inline"      //display:inline; inline-block to put in row wise
+class = "d-none"     //to hide the element
+class = "d-md-none"     //to hide the element on medium devices
+class = "border"
+
+4. SIZING
+class = "w-25"    //width height 25%,50,75,100,auto
+class = "h-25"
+class = "min-vw-100"    //100% of viewport width
+class = "min-vh-100"    //100% of viewport height
+
+5. RESPONSIVE IMAGES 
+class = "img-fluid"     //responsive image to width  
+class = "img-thumbnail" //adds responsive and border
+class = "float-start"   //end like text-start
+
+
+6. TABLES
+main div la class = "table-responsive" ani mg <table> la he khalche de
+class ="table-primary"     //-hover,-striped, apply on <table>, <tr>, <td>
+
+7.FORMS 
+-for label class = "form-label"
+-for input class = "form-control"
+-for checkbox type of input 
+    class ="form-check-input"
+
+-for button
+ btn btn-primary 
+
+ 8.BREAKPOINTS
+ sm,md,lg,xl,xxl
+ class = "container"    //div will not take the 100% of width
+ class = "container-fluid" //div uses 100% of width 
+ class = "container-sm"    //100% wide till sm breakpoint
+ class = "container-xl"    //100%
+
+ 9.GRID 
+ container madhe > row aahe > 12 columns eka row madhe aahe 
+ <div class = "container"
+   <div class= "row">
+      <div class ="col-1"> </div>     //12 columns can be fit in 1 row so if one col means it will take size given
+      <div class = col-3></div>     //this willl take size of 3 columns
+   </div>
+ </div>
