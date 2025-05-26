@@ -1,6 +1,3 @@
-
-
-gk
 ⭐1.-Prime no - 2to<rootOfnumber if remainder = 0 then not prime
             if(n<=1){
                 return false;
